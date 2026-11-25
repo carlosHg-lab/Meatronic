@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "termino": "ECU (Engine Control Unit)",
+    "definicion": "Unidad de control electrónico que gestiona el funcionamiento del motor mediante el procesamiento de señales de diversos sensores."
+  },
+  {
+    "id": "2",
+    "termino": "CAN Bus (Controller Area Network)",
+    "definicion": "Protocolo de comunicación serie multiplexado que permite a los microcontroladores y dispositivos comunicarse entre sí dentro del vehículo."
+  },
+  {
+    "id": "3",
+    "termino": "Sensor MAP (Manifold Absolute Pressure)",
+    "definicion": "Sensor que mide la presión absoluta en el colector de admisión para calcular la masa de aire ingresada al motor."
+  },
+  {
+    "id": "4",
+    "termino": "Sensor MAF (Mass Air Flow)",
+    "definicion": "Sensor de flujo de masa de aire que mide la cantidad exacta de aire que entra al motor en un momento determinado."
+  },
+  {
+    "id": "5",
+    "termino": "Sensor CKP (Crankshaft Position Sensor)",
+    "definicion": "Sensor de posición del cigüeñal que monitorea la velocidad de rotación y la posición exacta del cigüeñal para sincronizar encendido e inyección."
+  },
+  {
+    "id": "6",
+    "termino": "Sensor CMP (Camshaft Position Sensor)",
+    "definicion": "Sensor de posición del árbol de levas que determina qué cilindro está en la fase de compresión para la inyección secuencial."
+  },
+  {
+    "id": "7",
+    "termino": "Inyector Piezoeléctrico",
+    "definicion": "Dispositivo de inyección de combustible que utiliza cristales piezoeléctricos para lograr aperturas extremadamene rápidas y precisas."
+  },
+  {
+    "id": "8",
+    "termino": "OBD-II (On-Board Diagnostics II)",
+    "definicion": "Sistema de diagnóstico a bordo estandarizado que monitorea los componentes del vehículo e informa sobre códigos de falla (DTC)."
+  },
+  {
+    "id": "9",
+    "termino": "Sonda Lambda (Sensor de Oxígeno)",
+    "definicion": "Sensor ubicado en el escape que mide la concentración de oxígeno en los gases de escape para ajustar la mezcla aire-combustible."
+  },
+  {
+    "id": "10",
+    "termino": "Modulación por Ancho de Pulsos (PWM)",
+    "definicion": "Técnica utilizada por la ECU para variar la potencia entregada a actuadores modificando el tiempo del ciclo de trabajo activo."
+  }
+]
