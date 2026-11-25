@@ -16,8 +16,9 @@ import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RouteProp } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { COLORS } from '../theme/colors';
-import { pdfViewerStyles as styles } from '../theme/pdfViewerStyles';
+import { ThemeToggle } from '../components/ThemeToggle';
+import { useTheme, useThemedStyles } from '../theme/ThemeContext';
+import { createPdfViewerStyles } from '../theme/pdfViewerStyles';
 import type { RootStackParamList } from '../navigation/types';
 
 const LOCAL_PDF_ASSET = require('../assets/manual_4Y.pdf');
@@ -55,6 +56,8 @@ const PdfComponent = getNativePdfComponent();
 export function PdfViewerScreen({ route }: Props) {
   const navigation = useNavigation<NavigationProp>();
   const insets = useSafeAreaInsets();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createPdfViewerStyles);
 
   const documents = route?.params?.documents ?? [];
   const hasMultipleDocuments = documents.length > 1;
@@ -194,7 +197,7 @@ export function PdfViewerScreen({ route }: Props) {
           <MaterialCommunityIcons
             name="chevron-left"
             size={26}
-            color={COLORS.text}
+            color={colors.text}
           />
         </TouchableOpacity>
 
@@ -210,22 +213,25 @@ export function PdfViewerScreen({ route }: Props) {
           </Text>
         </View>
 
-        <TouchableOpacity
-          style={styles.headerButton}
-          onPress={handleOpenExternal}
-          disabled={!resolvedUri || isOpeningExternal}
-          activeOpacity={0.7}
-        >
-          {isOpeningExternal ? (
-            <ActivityIndicator size="small" color={COLORS.primary} />
-          ) : (
-            <MaterialCommunityIcons
-              name="open-in-new"
-              size={22}
-              color={resolvedUri ? COLORS.primary : COLORS.textMuted}
-            />
-          )}
-        </TouchableOpacity>
+        <View style={styles.headerActions}>
+          <ThemeToggle />
+          <TouchableOpacity
+            style={styles.headerButton}
+            onPress={handleOpenExternal}
+            disabled={!resolvedUri || isOpeningExternal}
+            activeOpacity={0.7}
+          >
+            {isOpeningExternal ? (
+              <ActivityIndicator size="small" color={colors.accent} />
+            ) : (
+              <MaterialCommunityIcons
+                name="open-in-new"
+                size={22}
+                color={resolvedUri ? colors.accent : colors.textMuted}
+              />
+            )}
+          </TouchableOpacity>
+        </View>
       </View>
 
       {pdfSource ? (
@@ -238,7 +244,7 @@ export function PdfViewerScreen({ route }: Props) {
             maxScale={4.0}
             style={styles.pdf}
             renderActivityIndicator={() => (
-              <ActivityIndicator size="large" color={COLORS.primary} />
+              <ActivityIndicator size="large" color={colors.accent} />
             )}
             onLoadComplete={(pages: number) => setNumPages(pages)}
             onError={(err: unknown) => {
@@ -252,7 +258,7 @@ export function PdfViewerScreen({ route }: Props) {
               <MaterialCommunityIcons
                 name="file-pdf-box"
                 size={56}
-                color={COLORS.primary}
+                color={colors.accent}
               />
               <Text style={styles.fallbackTitle}>{title}</Text>
               <Text style={styles.fallbackSubtext}>
@@ -267,7 +273,7 @@ export function PdfViewerScreen({ route }: Props) {
                 activeOpacity={0.8}
               >
                 {isOpeningExternal ? (
-                  <ActivityIndicator color="#FFFFFF" size="small" />
+                  <ActivityIndicator color={colors.accentText} size="small" />
                 ) : (
                   <Text style={styles.buttonText}>
                     Abrir PDF en visor del dispositivo
@@ -279,7 +285,7 @@ export function PdfViewerScreen({ route }: Props) {
         )
       ) : (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color={COLORS.primary} />
+          <ActivityIndicator size="large" color={colors.accent} />
         </View>
       )}
 
@@ -297,7 +303,7 @@ export function PdfViewerScreen({ route }: Props) {
             <MaterialCommunityIcons
               name="chevron-left"
               size={20}
-              color={activeIndex === 0 ? COLORS.textMuted : COLORS.primary}
+              color={activeIndex === 0 ? colors.textMuted : colors.accent}
             />
             <Text
               style={[
@@ -337,8 +343,8 @@ export function PdfViewerScreen({ route }: Props) {
               size={20}
               color={
                 activeIndex === documents.length - 1
-                  ? COLORS.textMuted
-                  : COLORS.primary
+                  ? colors.textMuted
+                  : colors.accent
               }
             />
           </TouchableOpacity>

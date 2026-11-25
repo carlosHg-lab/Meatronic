@@ -7,8 +7,8 @@ import { CalculatorScreen } from '../screens/CalculatorScreen';
 import { ManualesScreen } from '../screens/ManualesScreen';
 import { DiagramasScreen } from '../screens/DiagramasScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
-import { COLORS } from '../theme/colors';
-import { bottomTabsStyles as styles } from '../theme/bottomTabsStyles';
+import { useTheme, useThemedStyles } from '../theme/ThemeContext';
+import { createBottomTabsStyles } from '../theme/bottomTabsStyles';
 import type { BottomTabsParamList } from './types';
 
 export type { BottomTabsParamList } from './types';
@@ -36,17 +36,19 @@ const TAB_ICONS: Record<
 };
 
 export function BottomTabs() {
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createBottomTabsStyles);
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: COLORS.primary,
-        tabBarInactiveTintColor: COLORS.textMuted,
+        tabBarActiveTintColor: colors.accent,
+        tabBarInactiveTintColor: colors.textMuted,
         tabBarStyle: styles.tabBar,
         tabBarLabelStyle: styles.tabBarLabel,
         tabBarIcon: ({ color, size, focused }) => {
-          const icons =
-            TAB_ICONS[route.name as keyof BottomTabsParamList];
+          const icons = TAB_ICONS[route.name as keyof BottomTabsParamList];
           return (
             <MaterialCommunityIcons
               name={focused ? icons.focused : icons.unfocused}

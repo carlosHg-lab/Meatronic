@@ -4,7 +4,8 @@ import { NumberField } from '../../components/calculator/NumberField';
 import { ActionButton } from '../../components/calculator/ActionButton';
 import { ResultCard } from '../../components/calculator/ResultCard';
 import { AlertBanner } from '../../components/calculator/AlertBanner';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
+import { useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 import {
   compareTires,
   formatNumber,
@@ -36,6 +37,7 @@ function buildAlert(
 }
 
 export function TireTool() {
+  const styles = useThemedStyles(createCalculatorStyles);
   const [originalWidth, setOriginalWidth] = useState('');
   const [originalAspect, setOriginalAspect] = useState('');
   const [originalRim, setOriginalRim] = useState('');

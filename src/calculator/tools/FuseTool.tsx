@@ -5,7 +5,8 @@ import { OptionChips } from '../../components/calculator/OptionChips';
 import { ActionButton } from '../../components/calculator/ActionButton';
 import { ResultCard } from '../../components/calculator/ResultCard';
 import { AlertBanner } from '../../components/calculator/AlertBanner';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
+import { useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 import {
   calculateFuse,
   formatNumber,
@@ -59,6 +60,7 @@ function buildAlert(
 }
 
 export function FuseTool() {
+  const styles = useThemedStyles(createCalculatorStyles);
   const [loadCurrent, setLoadCurrent] = useState('');
   const [installedFuse, setInstalledFuse] = useState('');
   const [loadType, setLoadType] = useState<FuseLoadType>('continuous');

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
+import { useTheme, useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 
 export type AlertSeverity = 'info' | 'success' | 'warning' | 'danger';
 
@@ -20,36 +21,41 @@ const ICONS: Record<
   danger: 'alert-circle-outline',
 };
 
-const ICON_COLORS: Record<AlertSeverity, string> = {
-  info: '#00B4D8',
-  success: '#2EC4B6',
-  warning: '#F4A261',
-  danger: '#E63946',
-};
-
 const CONTAINER_STYLES = {
-  info: styles.alertInfo,
-  success: styles.alertSuccess,
-  warning: styles.alertWarning,
-  danger: styles.alertDanger,
-};
+  info: 'alertInfo',
+  success: 'alertSuccess',
+  warning: 'alertWarning',
+  danger: 'alertDanger',
+} as const;
 
 const TEXT_STYLES = {
-  info: styles.alertTextInfo,
-  success: styles.alertTextSuccess,
-  warning: styles.alertTextWarning,
-  danger: styles.alertTextDanger,
-};
+  info: 'alertTextInfo',
+  success: 'alertTextSuccess',
+  warning: 'alertTextWarning',
+  danger: 'alertTextDanger',
+} as const;
 
 export function AlertBanner({ severity, message }: Props) {
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createCalculatorStyles);
+
+  const iconColors: Record<AlertSeverity, string> = {
+    info: colors.info,
+    success: colors.success,
+    warning: colors.warning,
+    danger: colors.danger,
+  };
+
   return (
-    <View style={[styles.alert, CONTAINER_STYLES[severity]]}>
+    <View style={[styles.alert, styles[CONTAINER_STYLES[severity]]]}>
       <MaterialCommunityIcons
         name={ICONS[severity]}
         size={18}
-        color={ICON_COLORS[severity]}
+        color={iconColors[severity]}
       />
-      <Text style={[styles.alertText, TEXT_STYLES[severity]]}>{message}</Text>
+      <Text style={[styles.alertText, styles[TEXT_STYLES[severity]]]}>
+        {message}
+      </Text>
     </View>
   );
 }

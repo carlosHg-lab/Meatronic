@@ -2,51 +2,367 @@
   {
     "id": "1",
     "termino": "ECU (Engine Control Unit)",
-    "definicion": "Unidad de control electrónico que gestiona el funcionamiento del motor mediante el procesamiento de señales de diversos sensores."
+    "definicion": "Unidad de control electrónico que gestiona el funcionamiento del motor procesando las señales de los sensores y controlando inyectores, encendido y otros actuadores.",
+    "categoria": "Electrónica"
   },
   {
     "id": "2",
-    "termino": "CAN Bus (Controller Area Network)",
-    "definicion": "Protocolo de comunicación serie multiplexado que permite a los microcontroladores y dispositivos comunicarse entre sí dentro del vehículo."
+    "termino": "PCM (Powertrain Control Module)",
+    "definicion": "Módulo de control del tren motriz que integra las funciones de la ECU del motor y la TCM de la transmisión en una sola unidad.",
+    "categoria": "Electrónica"
   },
   {
     "id": "3",
-    "termino": "Sensor MAP (Manifold Absolute Pressure)",
-    "definicion": "Sensor que mide la presión absoluta en el colector de admisión para calcular la masa de aire ingresada al motor."
+    "termino": "BCM (Body Control Module)",
+    "definicion": "Módulo de control de carrocería que administra luces, seguros, elevalunas, limpiaparabrisas y otras funciones eléctricas del habitáculo.",
+    "categoria": "Electrónica"
   },
   {
     "id": "4",
-    "termino": "Sensor MAF (Mass Air Flow)",
-    "definicion": "Sensor de flujo de masa de aire que mide la cantidad exacta de aire que entra al motor en un momento determinado."
+    "termino": "TCM (Transmission Control Module)",
+    "definicion": "Unidad de control de la transmisión que decide los cambios de marcha y regula la presión hidráulica según las condiciones de conducción.",
+    "categoria": "Transmisión"
   },
   {
     "id": "5",
-    "termino": "Sensor CKP (Crankshaft Position Sensor)",
-    "definicion": "Sensor de posición del cigüeñal que monitorea la velocidad de rotación y la posición exacta del cigüeñal para sincronizar encendido e inyección."
+    "termino": "CAN Bus (Controller Area Network)",
+    "definicion": "Protocolo de comunicación serie multiplexado que permite a las unidades de control intercambiar datos a alta velocidad mediante dos líneas trenzadas.",
+    "categoria": "Comunicación"
   },
   {
     "id": "6",
-    "termino": "Sensor CMP (Camshaft Position Sensor)",
-    "definicion": "Sensor de posición del árbol de levas que determina qué cilindro está en la fase de compresión para la inyección secuencial."
+    "termino": "LIN Bus (Local Interconnect Network)",
+    "definicion": "Red serie de bajo costo y velocidad reducida usada para comunicar actuadores y sensores sencillos con la unidad de control maestra.",
+    "categoria": "Comunicación"
   },
   {
     "id": "7",
-    "termino": "Inyector Piezoeléctrico",
-    "definicion": "Dispositivo de inyección de combustible que utiliza cristales piezoeléctricos para lograr aperturas extremadamene rápidas y precisas."
+    "termino": "FlexRay",
+    "definicion": "Protocolo de comunicación determinista y de alta velocidad utilizado en sistemas críticos como dirección, suspensión y asistencia al conductor.",
+    "categoria": "Comunicación"
   },
   {
     "id": "8",
-    "termino": "OBD-II (On-Board Diagnostics II)",
-    "definicion": "Sistema de diagnóstico a bordo estandarizado que monitorea los componentes del vehículo e informa sobre códigos de falla (DTC)."
+    "termino": "MOST (Media Oriented Systems Transport)",
+    "definicion": "Red óptica de alta velocidad diseñada para transportar audio, video y datos multimedia dentro del vehículo.",
+    "categoria": "Comunicación"
   },
   {
     "id": "9",
-    "termino": "Sonda Lambda (Sensor de Oxígeno)",
-    "definicion": "Sensor ubicado en el escape que mide la concentración de oxígeno en los gases de escape para ajustar la mezcla aire-combustible."
+    "termino": "K-Line",
+    "definicion": "Línea de comunicación serie de un solo hilo empleada en diagnósticos y módulos antiguos, con velocidades típicas de 10,4 kbit/s.",
+    "categoria": "Comunicación"
   },
   {
     "id": "10",
+    "termino": "UDS (Unified Diagnostic Services)",
+    "definicion": "Protocolo de diagnóstico unificado (ISO 14229) que permite leer fallas, programar módulos y ejecutar rutinas de servicio.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "11",
+    "termino": "OBD-II (On-Board Diagnostics II)",
+    "definicion": "Sistema de diagnóstico a bordo estandarizado que monitorea los componentes del vehículo e informa sobre códigos de falla (DTC).",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "12",
+    "termino": "DTC (Diagnostic Trouble Code)",
+    "definicion": "Código de diagnóstico de falla que identifica un circuito o sistema fuera de rango detectado por la unidad de control.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "13",
+    "termino": "Freeze Frame",
+    "definicion": "Instantánea de datos del motor guardada por la ECU en el momento en que se registra un DTC, útil para reproducir la falla.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "14",
+    "termino": "PID (Parameter Identifier)",
+    "definicion": "Identificador de parámetro OBD-II que expone lecturas en vivo como RPM, temperatura o carga del motor al escáner.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "15",
+    "termino": "Readiness Monitors",
+    "definicion": "Monitores de disponibilidad que indican si las pruebas de diagnóstico del vehículo se completaron desde el último borrado de códigos.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "16",
+    "termino": "Misfire (Falla de Combustión)",
+    "definicion": "Falla de combustión en uno o más cilindros que provoca pérdida de potencia, vibración y posibles daños al catalizador.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "17",
+    "termino": "Modo Limp (Limp Mode)",
+    "definicion": "Modo de emergencia en el que la ECU limita la potencia y las RPM para proteger el motor ante una falla grave.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "18",
+    "termino": "Sensor MAP (Manifold Absolute Pressure)",
+    "definicion": "Sensor que mide la presión absoluta del colector de admisión para estimar la masa de aire que ingresa al motor.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "19",
+    "termino": "Sensor MAF (Mass Air Flow)",
+    "definicion": "Sensor de flujo de masa de aire que mide directamente la cantidad de aire que entra al motor en un momento determinado.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "20",
+    "termino": "Sensor CKP (Crankshaft Position Sensor)",
+    "definicion": "Sensor de posición del cigüeñal que informa la velocidad y la posición angular para sincronizar el encendido y la inyección.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "21",
+    "termino": "Sensor CMP (Camshaft Position Sensor)",
+    "definicion": "Sensor de posición del árbol de levas que identifica la fase de cada cilindro para la inyección y el encendido secuencial.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "22",
+    "termino": "Sonda Lambda (Sensor de Oxígeno)",
+    "definicion": "Sensor ubicado en el escape que mide el oxígeno residual y permite ajustar la mezcla aire-combustible al valor estequiométrico.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "23",
+    "termino": "Sensor IAT (Intake Air Temperature)",
+    "definicion": "Sensor de temperatura del aire de admisión que corrige el cálculo de densidad y masa de aire.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "24",
+    "termino": "Sensor ECT (Engine Coolant Temperature)",
+    "definicion": "Sensor de temperatura del refrigerante que permite gestionar el arranque en frío, el ventilador y el ajuste de mezcla.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "25",
+    "termino": "Sensor TPS (Throttle Position Sensor)",
+    "definicion": "Sensor de posición de la mariposa que informa la apertura del acelerador y la demanda de carga del conductor.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "26",
+    "termino": "Sensor APP (Accelerator Pedal Position)",
+    "definicion": "Sensor de posición del pedal del acelerador que transmite la demanda de potencia al sistema de control electrónico.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "27",
+    "termino": "Sensor de Detonación (Knock Sensor)",
+    "definicion": "Sensor piezoeléctrico que detecta vibraciones anormales (detonación) para que la ECU retrase el encendido y proteja el motor.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "28",
+    "termino": "Sensor VSS (Vehicle Speed Sensor)",
+    "definicion": "Sensor de velocidad del vehículo que alimenta el velocímetro, la transmisión y los sistemas de asistencia.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "29",
+    "termino": "Sensor WSS (Wheel Speed Sensor)",
+    "definicion": "Sensor de velocidad de rueda que entrega pulsos al ABS, al control de estabilidad y al TPMS indirecto.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "30",
+    "termino": "Sensor FRP (Fuel Rail Pressure)",
+    "definicion": "Sensor de presión del riel de combustible que permite regular la presión de inyección en sistemas Common Rail.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "31",
+    "termino": "Sensor NOx",
+    "definicion": "Sensor que mide óxidos de nitrógeno en el escape para controlar la dosificación de urea y la reducción catalítica.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "32",
+    "termino": "Inyector Piezoeléctrico",
+    "definicion": "Inyector que utiliza cristales piezoeléctricos para lograr aperturas extremadamente rápidas y múltiples eventos de inyección por ciclo.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "33",
+    "termino": "Inyector Solenoide",
+    "definicion": "Inyector accionado por una bobina electromagnética que abre la aguja para pulverizar combustible a alta presión.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "34",
+    "termino": "Válvula EGR (Exhaust Gas Recirculation)",
+    "definicion": "Válvula que recircula gases de escape hacia la admisión para reducir la temperatura de combustión y las emisiones de NOx.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "35",
+    "termino": "Válvula IAC (Idle Air Control)",
+    "definicion": "Actuador que regula el aire de ralentí para mantener estable la velocidad del motor en marcha mínima.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "36",
+    "termino": "Cuerpo de Aceleración Electrónico",
+    "definicion": "Conjunto motorizado que abre la mariposa según la señal del pedal, sin cable mecánico (drive-by-wire).",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "37",
+    "termino": "Geometría Variable del Turbo (VGT)",
+    "definicion": "Sistema que ajusta los álabes del turbo para optimizar la respuesta a bajas RPM y la potencia a altas RPM.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "38",
+    "termino": "Inyector de AdBlue (DEF)",
+    "definicion": "Actuador que dosifica la solución de urea en el escape para reducir los óxidos de nitrógeno en motores diésel.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "39",
+    "termino": "Bobina de Encendido",
+    "definicion": "Transformador que eleva el voltaje de la batería para generar la chispa en la bujía de cada cilindro.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "40",
     "termino": "Modulación por Ancho de Pulsos (PWM)",
-    "definicion": "Técnica utilizada por la ECU para variar la potencia entregada a actuadores modificando el tiempo del ciclo de trabajo activo."
+    "definicion": "Técnica utilizada por la ECU para variar la potencia media entregada a un actuador modificando el tiempo del ciclo de trabajo activo.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "41",
+    "termino": "Voltaje de Referencia 5V",
+    "definicion": "Tensión estabilizada que la ECU entrega a los sensores para que su señal sea interpretada de forma confiable.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "42",
+    "termino": "Relé",
+    "definicion": "Interruptor electromecánico que permite que una señal de baja corriente controle cargas de mayor consumo.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "43",
+    "termino": "Alternador",
+    "definicion": "Generador accionado por el motor que produce electricidad y mantiene cargada la batería con el vehículo en marcha.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "44",
+    "termino": "Batería AGM",
+    "definicion": "Batería de plomo-ácido con separadores de fibra de vidrio, resistente a descargas profundas y habitual en vehículos con Start-Stop.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "45",
+    "termino": "Sensor de Corriente de Batería (IBS)",
+    "definicion": "Sensor montado en el borne negativo que mide corriente y estado de carga para gestionar la energía del vehículo.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "46",
+    "termino": "ABS (Anti-lock Braking System)",
+    "definicion": "Sistema antibloqueo que modula la presión de frenado para evitar que las ruedas se bloqueen durante una frenada fuerte.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "47",
+    "termino": "ESP / ESC (Control de Estabilidad)",
+    "definicion": "Control electrónico de estabilidad que corrige la trayectoria frenando ruedas de forma selectiva y reduciendo el par motor.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "48",
+    "termino": "TPMS (Tire Pressure Monitoring System)",
+    "definicion": "Sistema de monitoreo de presión de neumáticos que alerta al conductor cuando la presión cae fuera del rango.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "49",
+    "termino": "Inmovilizador",
+    "definicion": "Sistema antirrobo que valida la llave o el transponder y bloquea el arranque si no se reconoce.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "50",
+    "termino": "Control de Crucero Adaptativo (ACC)",
+    "definicion": "Sistema que mantiene la velocidad y la distancia con el vehículo precedente ajustando automáticamente acelerador y frenos.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "51",
+    "termino": "Common Rail",
+    "definicion": "Sistema de inyección diésel en el que una bomba mantiene combustible a alta presión en un conducto común para todos los inyectores.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "52",
+    "termino": "Turboalimentación",
+    "definicion": "Uso de una turbina movida por los gases de escape para comprimir el aire de admisión y aumentar la potencia del motor.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "53",
+    "termino": "Relación Estequiométrica (AFR)",
+    "definicion": "Proporción ideal de aire y combustible para una combustión completa; en gasolina es aproximadamente 14,7:1.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "54",
+    "termino": "Distribución Variable (VVT)",
+    "definicion": "Sistema que varía el sincronismo de las válvulas o del árbol de levas para mejorar potencia, consumo y emisiones.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "55",
+    "termino": "Filtro de Partículas Diésel (DPF)",
+    "definicion": "Elemento que retiene el hollín del escape y se regenera periódicamente mediante altas temperaturas.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "56",
+    "termino": "Catalizador",
+    "definicion": "Dispositivo que convierte gases contaminantes en sustancias menos nocivas mediante reacciones catalíticas.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "57",
+    "termino": "SCR (Reducción Catalítica Selectiva)",
+    "definicion": "Sistema que inyecta urea en el escape para transformar los NOx en nitrógeno y agua.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "58",
+    "termino": "Ajuste de Combustible (STFT / LTFT)",
+    "definicion": "Correcciones a corto y largo plazo que la ECU aplica a la mezcla para compensar desviaciones detectadas por la sonda lambda.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "59",
+    "termino": "Convertidor de Par",
+    "definicion": "Acoplamiento hidráulico entre motor y transmisión que multiplica el par y permite detener el vehículo sin desembragar.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "60",
+    "termino": "Transmisión CVT",
+    "definicion": "Transmisión de relación continuamente variable que ajusta poleas o correa para mantener el motor en su rango óptimo.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "61",
+    "termino": "Transmisión DSG (Doble Embrague)",
+    "definicion": "Transmisión de doble embrague que permite cambios rápidos sin interrumpir la entrega de potencia.",
+    "categoria": "Transmisión"
   }
 ]

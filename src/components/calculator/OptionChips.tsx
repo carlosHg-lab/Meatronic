@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
+import { useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 
 export type ChipOption<T extends string> = {
   id: T;
@@ -18,6 +19,8 @@ export function OptionChips<T extends string>({
   selected,
   onSelect,
 }: Props<T>) {
+  const styles = useThemedStyles(createCalculatorStyles);
+
   return (
     <View style={styles.optionRow}>
       {options.map((option) => {

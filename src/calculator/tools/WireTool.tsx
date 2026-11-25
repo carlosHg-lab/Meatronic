@@ -5,7 +5,8 @@ import { OptionChips } from '../../components/calculator/OptionChips';
 import { ActionButton } from '../../components/calculator/ActionButton';
 import { ResultCard } from '../../components/calculator/ResultCard';
 import { AlertBanner } from '../../components/calculator/AlertBanner';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
+import { useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 import {
   calculateWireSize,
   formatNumber,
@@ -52,6 +53,7 @@ function buildAlert(
 }
 
 export function WireTool() {
+  const styles = useThemedStyles(createCalculatorStyles);
   const [current, setCurrent] = useState('');
   const [length, setLength] = useState('');
   const [voltage, setVoltage] = useState('');

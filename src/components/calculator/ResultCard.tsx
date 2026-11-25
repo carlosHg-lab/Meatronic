@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
+import { useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 
 export type ResultRow = {
   label: string;
@@ -14,6 +15,8 @@ type Props = {
 };
 
 export function ResultCard({ title, rows }: Props) {
+  const styles = useThemedStyles(createCalculatorStyles);
+
   return (
     <View style={styles.resultCard}>
       {title ? <Text style={styles.resultTitle}>{title}</Text> : null}

@@ -5,7 +5,8 @@ import { OptionChips } from '../../components/calculator/OptionChips';
 import { ActionButton } from '../../components/calculator/ActionButton';
 import { ResultCard } from '../../components/calculator/ResultCard';
 import { AlertBanner } from '../../components/calculator/AlertBanner';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
+import { useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 import {
   formatNumber,
   parseDecimal,
@@ -114,6 +115,7 @@ function buildAlert(solution: OhmSolution) {
 }
 
 export function OhmTool() {
+  const styles = useThemedStyles(createCalculatorStyles);
   const [mode, setMode] = useState<OhmMode>('vr');
   const [first, setFirst] = useState('');
   const [second, setSecond] = useState('');

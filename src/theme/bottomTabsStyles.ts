@@ -1,12 +1,16 @@
 import { StyleSheet } from 'react-native';
-import { COLORS } from './colors';
+import type { ThemeColors } from './colors';
 
-export const bottomTabsStyles = StyleSheet.create({
-  tabBar: {
-    backgroundColor: COLORS.surface,
-    borderTopColor: COLORS.border,
-  },
-  tabBarLabel: {
-    fontSize: 11,
-  },
-});
+export const createBottomTabsStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    tabBar: {
+      backgroundColor: colors.surface,
+      borderTopColor: colors.border,
+      borderTopWidth: 1,
+    },
+    tabBarLabel: {
+      fontSize: 10,
+      fontWeight: '600',
+      letterSpacing: 0.3,
+    },
+  });

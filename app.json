@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.anonymous.Maetronic"
@@ -28,11 +28,20 @@
       "expo-asset",
       "expo-font",
       "expo-sharing",
+      "expo-system-ui",
       [
         "expo-file-system",
         {
           "supportsOpeningDocumentsInPlace": true,
           "enableFileSharing": true
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Permite a Maetronic acceder a tus fotos para elegir una foto de perfil.",
+          "cameraPermission": false,
+          "microphonePermission": false
         }
       ]
     ]

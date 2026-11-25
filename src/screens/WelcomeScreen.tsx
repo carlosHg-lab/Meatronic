@@ -1,31 +1,27 @@
 import React from 'react';
-import { Image, Pressable, StatusBar, Text, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient'; // O 'react-native-linear-gradient'
+import { Image, Pressable, Text, View } from 'react-native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { ParamListBase } from '@react-navigation/native';
-import { welcomeStyles as styles } from '../theme/welcomeStyles';
+import { ThemeToggle } from '../components/ThemeToggle';
+import { useThemedStyles } from '../theme/ThemeContext';
+import { createWelcomeStyles } from '../theme/welcomeStyles';
 
 type WelcomeScreenProps = {
   navigation: NativeStackNavigationProp<ParamListBase>;
 };
 
 export function WelcomeScreen({ navigation }: WelcomeScreenProps) {
+  const styles = useThemedStyles(createWelcomeStyles);
+
   return (
-    <LinearGradient
-      colors={['#07254C', '#04152D', '#020B18']}
-      locations={[0, 0.45, 1]}
-      style={styles.container}
-    >
-      <StatusBar barStyle="light-content" />
-
-      {/* Sección Superior: Logo Principal con Brillo y Título */}
+    <View style={styles.container}>
       <View style={styles.topSection}>
-        <View style={styles.logoWrapper}>
-          {/* Capas de resplandor (Glow) */}
-          <View style={styles.glowOuter} />
-          <View style={styles.glowMid} />
-          <View style={styles.glowInner} />
+        <View style={styles.topRow}>
+          <Text style={styles.topKicker}>Instrumento de diagnóstico</Text>
+          <ThemeToggle />
+        </View>
 
+        <View style={styles.logoWrapper}>
           <Image
             source={require('../../assets/ImagenPrincipal.jpg')}
             style={styles.logo}
@@ -34,14 +30,15 @@ export function WelcomeScreen({ navigation }: WelcomeScreenProps) {
         </View>
 
         <Text style={styles.title}>
-          Tu Plataforma de Información{'\n'}Técnica Automotriz
+          Tu plataforma de información técnica automotriz
         </Text>
       </View>
 
-      {/* Sección Inferior: Créditos y Logo Institucional */}
       <View style={styles.footer}>
         <View style={styles.credits}>
-          <Text style={styles.creditText}>Desarrollador: Ismael Huanaco Carpio</Text>
+          <Text style={styles.creditText}>
+            Desarrollador: Ismael Huanaco Carpio
+          </Text>
           <Text style={styles.creditText}>Docente: Marco Paredes</Text>
           <Text style={styles.creditText}>Autotrónica — 2026</Text>
         </View>
@@ -63,7 +60,7 @@ export function WelcomeScreen({ navigation }: WelcomeScreenProps) {
           <Text style={styles.yearText}>2026</Text>
         </Pressable>
       </View>
-    </LinearGradient>
+    </View>
   );
 }
 

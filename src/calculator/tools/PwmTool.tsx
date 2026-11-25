@@ -5,7 +5,8 @@ import { OptionChips } from '../../components/calculator/OptionChips';
 import { ActionButton } from '../../components/calculator/ActionButton';
 import { ResultCard } from '../../components/calculator/ResultCard';
 import { AlertBanner } from '../../components/calculator/AlertBanner';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
+import { useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 import {
   formatNumber,
   parseDecimal,
@@ -38,6 +39,7 @@ function buildAlert(
 }
 
 export function PwmTool() {
+  const styles = useThemedStyles(createCalculatorStyles);
   const [mode, setMode] = useState<PwmMode>('freq-duty');
   const [frequency, setFrequency] = useState('');
   const [duty, setDuty] = useState('');

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
-import { COLORS } from '../../theme/colors';
+import { useTheme, useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 import { formatNumber } from '../../utils/formulas';
 
 type Props = {
@@ -21,6 +21,9 @@ export function NumberField({
   placeholder,
   quickValues,
 }: Props) {
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createCalculatorStyles);
+
   return (
     <View style={styles.fieldGroup}>
       <Text style={styles.label}>{label}</Text>
@@ -30,7 +33,7 @@ export function NumberField({
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
-          placeholderTextColor={COLORS.textMuted}
+          placeholderTextColor={colors.textMuted}
           keyboardType="decimal-pad"
           autoCorrect={false}
         />

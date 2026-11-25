@@ -4,7 +4,8 @@ import { NumberField } from '../../components/calculator/NumberField';
 import { ActionButton } from '../../components/calculator/ActionButton';
 import { ResultCard } from '../../components/calculator/ResultCard';
 import { AlertBanner } from '../../components/calculator/AlertBanner';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
+import { useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 import {
   calculateDisplacement,
   formatNumber,
@@ -40,6 +41,7 @@ function buildAlert(
 }
 
 export function DisplacementTool() {
+  const styles = useThemedStyles(createCalculatorStyles);
   const [bore, setBore] = useState('');
   const [stroke, setStroke] = useState('');
   const [cylinders, setCylinders] = useState('');

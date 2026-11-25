@@ -4,7 +4,8 @@ import { NumberField } from '../../components/calculator/NumberField';
 import { OptionChips } from '../../components/calculator/OptionChips';
 import { ResultCard } from '../../components/calculator/ResultCard';
 import { AlertBanner } from '../../components/calculator/AlertBanner';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
+import { useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 import {
   CONVERTER_CATEGORIES,
   convertValue,
@@ -15,6 +16,7 @@ import {
 const INITIAL_CATEGORY = CONVERTER_CATEGORIES[0];
 
 export function ConverterTool() {
+  const styles = useThemedStyles(createCalculatorStyles);
   const [categoryId, setCategoryId] = useState(INITIAL_CATEGORY.id);
   const [fromUnitId, setFromUnitId] = useState(INITIAL_CATEGORY.units[0].id);
   const [toUnitId, setToUnitId] = useState(INITIAL_CATEGORY.units[1].id);

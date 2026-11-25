@@ -10,8 +10,9 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
 import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import type { BottomTabsParamList } from '../navigation/BottomTabs';
-import { homeStyles as styles } from '../theme/homeStyles';
-import { COLORS } from '../theme/colors';
+import { ThemeToggle } from '../components/ThemeToggle';
+import { useTheme, useThemedStyles } from '../theme/ThemeContext';
+import { createHomeStyles } from '../theme/homeStyles';
 
 type NavigationProp = BottomTabNavigationProp<BottomTabsParamList, 'Inicio'>;
 
@@ -45,6 +46,8 @@ const SLIDER_IMAGES: ImageSourcePropType[] = [
 
 export function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createHomeStyles);
   const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
@@ -57,6 +60,11 @@ export function HomeScreen() {
 
   return (
     <View style={styles.container}>
+      <View style={styles.topRow}>
+        <Text style={styles.topKicker}>Panel técnico</Text>
+        <ThemeToggle />
+      </View>
+
       <View style={styles.topImageContainer}>
         <Image
           source={TOP_IMAGE}
@@ -66,7 +74,7 @@ export function HomeScreen() {
       </View>
 
       <Text style={styles.header}>
-        MANUALES, DIAGRAMAS, DICCIONARIO Y CÁLCULOS
+        Manuales, diagramas, diccionario y cálculos
       </Text>
 
       <View style={styles.grid}>
@@ -74,13 +82,13 @@ export function HomeScreen() {
           <TouchableOpacity
             key={card.label}
             style={styles.card}
-            activeOpacity={0.7}
+            activeOpacity={0.75}
             onPress={() => navigation.navigate(card.screen)}
           >
             <MaterialCommunityIcons
               name={card.icon}
-              size={38}
-              color={COLORS.primary}
+              size={34}
+              color={colors.accent}
             />
             <Text style={styles.cardLabel}>{card.label}</Text>
           </TouchableOpacity>

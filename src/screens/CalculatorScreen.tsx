@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { calculatorStyles as styles } from '../theme/calculatorStyles';
-import { COLORS } from '../theme/colors';
+import { ThemeToggle } from '../components/ThemeToggle';
+import { useTheme, useThemedStyles } from '../theme/ThemeContext';
+import { createCalculatorStyles } from '../theme/calculatorStyles';
 import { OhmTool } from '../calculator/tools/OhmTool';
 import { FuseTool } from '../calculator/tools/FuseTool';
 import { WireTool } from '../calculator/tools/WireTool';
@@ -37,14 +38,31 @@ const TOOLS: ToolDefinition[] = [
   { id: 'fuse', label: 'Fusibles', icon: 'fuse', Component: FuseTool },
   { id: 'wire', label: 'Cable', icon: 'power-plug', Component: WireTool },
   { id: 'pwm', label: 'PWM', icon: 'waveform', Component: PwmTool },
-  { id: 'displacement', label: 'Cilindrada', icon: 'engine', Component: DisplacementTool },
-  { id: 'compression', label: 'Compresión', icon: 'gauge', Component: CompressionTool },
+  {
+    id: 'displacement',
+    label: 'Cilindrada',
+    icon: 'engine',
+    Component: DisplacementTool,
+  },
+  {
+    id: 'compression',
+    label: 'Compresión',
+    icon: 'gauge',
+    Component: CompressionTool,
+  },
   { id: 'tire', label: 'Neumáticos', icon: 'tire', Component: TireTool },
-  { id: 'converter', label: 'Conversor', icon: 'swap-horizontal', Component: ConverterTool },
+  {
+    id: 'converter',
+    label: 'Conversor',
+    icon: 'swap-horizontal',
+    Component: ConverterTool,
+  },
 ];
 
 export function CalculatorScreen() {
   const insets = useSafeAreaInsets();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createCalculatorStyles);
   const [activeToolId, setActiveToolId] = useState<ToolId>('ohm');
 
   const activeTool =
@@ -54,7 +72,10 @@ export function CalculatorScreen() {
   return (
     <View style={styles.container}>
       <View style={[styles.header, { paddingTop: insets.top + 18 }]}>
-        <Text style={styles.headerKicker}>HERRAMIENTAS OFFLINE</Text>
+        <View style={styles.headerTopRow}>
+          <Text style={styles.headerKicker}>Herramientas offline</Text>
+          <ThemeToggle />
+        </View>
         <Text style={styles.headerTitle}>Calculadora de Taller</Text>
         <Text style={styles.headerSubtitle}>
           Cálculos eléctricos, de motor y conversiones sin conexión a internet.
@@ -79,7 +100,7 @@ export function CalculatorScreen() {
               <MaterialCommunityIcons
                 name={tool.icon}
                 size={15}
-                color={active ? COLORS.background : COLORS.textMuted}
+                color={active ? colors.accentText : colors.textMuted}
               />
               <Text
                 style={[

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pressable, Text } from 'react-native';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
+import { useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 
 type Props = {
   label: string;
@@ -8,6 +9,8 @@ type Props = {
 };
 
 export function ActionButton({ label, onPress }: Props) {
+  const styles = useThemedStyles(createCalculatorStyles);
+
   return (
     <Pressable
       style={({ pressed }) => [styles.button, pressed && styles.buttonPressed]}

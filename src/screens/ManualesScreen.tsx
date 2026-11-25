@@ -13,8 +13,9 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { usePdfLibrary } from '../hooks/usePdfLibrary';
 import { formatBytes } from '../utils/formatBytes';
-import { COLORS } from '../theme/colors';
-import { manualesStyles as styles } from '../theme/manualesStyles';
+import { ThemeToggle } from '../components/ThemeToggle';
+import { useTheme, useThemedStyles } from '../theme/ThemeContext';
+import { createManualesStyles } from '../theme/manualesStyles';
 import type { PdfDocument } from '../services/pdfLibrary';
 import type { RootStackParamList } from '../navigation/types';
 
@@ -27,6 +28,9 @@ function ManualRow({
   document: PdfDocument;
   onPress: () => void;
 }) {
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createManualesStyles);
+
   return (
     <TouchableOpacity
       style={styles.row}
@@ -37,7 +41,7 @@ function ManualRow({
         <MaterialCommunityIcons
           name="file-pdf-box"
           size={26}
-          color={COLORS.primary}
+          color={colors.accent}
         />
       </View>
       <View style={styles.rowText}>
@@ -51,7 +55,7 @@ function ManualRow({
       <MaterialCommunityIcons
         name="chevron-right"
         size={22}
-        color={COLORS.textMuted}
+        color={colors.textMuted}
       />
     </TouchableOpacity>
   );
@@ -60,6 +64,8 @@ function ManualRow({
 export function ManualesScreen() {
   const navigation = useNavigation<NavigationProp>();
   const insets = useSafeAreaInsets();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createManualesStyles);
   const {
     documents,
     isExternal,
@@ -115,7 +121,7 @@ export function ManualesScreen() {
     if (loading) {
       return (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color={COLORS.primary} />
+          <ActivityIndicator size="large" color={colors.accent} />
         </View>
       );
     }
@@ -125,7 +131,7 @@ export function ManualesScreen() {
         <MaterialCommunityIcons
           name="book-open-variant"
           size={54}
-          color={COLORS.primary}
+          color={colors.accent}
         />
         <Text style={styles.emptyTitle}>Sin manuales todavía</Text>
         <Text style={styles.emptyText}>
@@ -140,7 +146,10 @@ export function ManualesScreen() {
   return (
     <View style={styles.container}>
       <View style={[styles.header, { paddingTop: insets.top + 20 }]}>
-        <Text style={styles.headerKicker}>BIBLIOTECA TÉCNICA</Text>
+        <View style={styles.headerTopRow}>
+          <Text style={styles.headerKicker}>Biblioteca técnica</Text>
+          <ThemeToggle />
+        </View>
         <Text style={styles.headerTitle}>Manuales</Text>
         <Text style={styles.headerSubtitle}>
           Todos los manuales PDF disponibles en el dispositivo.
@@ -149,7 +158,7 @@ export function ManualesScreen() {
           <MaterialCommunityIcons
             name="folder-open"
             size={13}
-            color={COLORS.primary}
+            color={colors.accent}
           />
           <Text style={styles.folderChipText} numberOfLines={1}>
             {isExternal
@@ -167,9 +176,13 @@ export function ManualesScreen() {
           activeOpacity={0.8}
         >
           {busy ? (
-            <ActivityIndicator size="small" color="#04152D" />
+            <ActivityIndicator size="small" color={colors.accentText} />
           ) : (
-            <MaterialCommunityIcons name="file-plus" size={17} color="#04152D" />
+            <MaterialCommunityIcons
+              name="file-plus"
+              size={17}
+              color={colors.accentText}
+            />
           )}
           <Text
             style={[styles.toolbarButtonText, styles.toolbarButtonTextPrimary]}
@@ -187,7 +200,7 @@ export function ManualesScreen() {
           <MaterialCommunityIcons
             name="folder-search"
             size={17}
-            color={COLORS.primary}
+            color={colors.accent}
           />
           <Text style={styles.toolbarButtonText}>
             {isExternal ? 'Cambiar carpeta' : 'Elegir carpeta'}
@@ -203,7 +216,7 @@ export function ManualesScreen() {
           <MaterialCommunityIcons
             name="refresh"
             size={17}
-            color={COLORS.primary}
+            color={colors.accent}
           />
           <Text style={styles.toolbarButtonText}>Actualizar</Text>
         </TouchableOpacity>

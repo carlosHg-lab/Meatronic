@@ -4,7 +4,8 @@ import { NumberField } from '../../components/calculator/NumberField';
 import { ActionButton } from '../../components/calculator/ActionButton';
 import { ResultCard } from '../../components/calculator/ResultCard';
 import { AlertBanner } from '../../components/calculator/AlertBanner';
-import { calculatorStyles as styles } from '../../theme/calculatorStyles';
+import { useThemedStyles } from '../../theme/ThemeContext';
+import { createCalculatorStyles } from '../../theme/calculatorStyles';
 import {
   calculateCompressionRatio,
   chamberForTargetRatio,
@@ -38,6 +39,7 @@ function buildAlert(
 }
 
 export function CompressionTool() {
+  const styles = useThemedStyles(createCalculatorStyles);
   const [bore, setBore] = useState('');
   const [stroke, setStroke] = useState('');
   const [chamber, setChamber] = useState('');
