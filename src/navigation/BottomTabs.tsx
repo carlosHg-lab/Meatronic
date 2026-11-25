@@ -5,18 +5,13 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import HomeScreen from '../screens/HomeScreen';
 import DictionaryScreen from '../screens/DictionaryScreen';
 import CalculatorScreen from '../screens/CalculatorScreen';
-import PdfViewerScreen from '../screens/PdfViewerScreen';
+import ManualesScreen from '../screens/ManualesScreen';
+import DiagramasScreen from '../screens/DiagramasScreen';
 import { COLORS } from '../theme/colors';
 import { bottomTabsStyles as styles } from '../theme/bottomTabsStyles';
+import type { BottomTabsParamList } from './types';
 
-export type BottomTabsParamList = {
-  Inicio: undefined;
-  Manuales: undefined;
-  Diagramas: undefined;
-  Diccionario: undefined;
-  Perfil: undefined;
-  Calculadora: undefined;
-};
+export type { BottomTabsParamList } from './types';
 
 const Tab = createBottomTabNavigator<BottomTabsParamList>();
 
@@ -40,20 +35,12 @@ const TAB_ICONS: Record<
   },
 };
 
-function PlaceholderScreen({ label }: { label: string }) {
+function PerfilScreen() {
   return (
     <View style={styles.placeholder}>
-      <Text style={styles.placeholderText}>{label}</Text>
+      <Text style={styles.placeholderText}>Perfil</Text>
     </View>
   );
-}
-
-function DiagramasScreen() {
-  return <PlaceholderScreen label="Diagramas" />;
-}
-
-function PerfilScreen() {
-  return <PlaceholderScreen label="Perfil" />;
 }
 
 export function BottomTabs() {
@@ -79,7 +66,7 @@ export function BottomTabs() {
       })}
     >
       <Tab.Screen name="Inicio" component={HomeScreen} />
-      <Tab.Screen name="Manuales" component={PdfViewerScreen} />
+      <Tab.Screen name="Manuales" component={ManualesScreen} />
       <Tab.Screen name="Diagramas" component={DiagramasScreen} />
       <Tab.Screen name="Calculadora" component={CalculatorScreen} />
       <Tab.Screen name="Diccionario" component={DictionaryScreen} />

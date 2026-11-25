@@ -27,7 +27,14 @@
       "react-native-blob-util",
       "expo-asset",
       "expo-font",
-      "expo-sharing"
+      "expo-sharing",
+      [
+        "expo-file-system",
+        {
+          "supportsOpeningDocumentsInPlace": true,
+          "enableFileSharing": true
+        }
+      ]
     ]
   }
 }

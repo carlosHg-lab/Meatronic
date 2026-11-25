@@ -1,8 +1,9 @@
 import React from 'react';
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StatusBar, Text, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient'; // O 'react-native-linear-gradient'
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { ParamListBase } from '@react-navigation/native';
-import { COLORS } from '../theme/colors';
+import { welcomeStyles as styles } from '../theme/welcomeStyles';
 
 type WelcomeScreenProps = {
   navigation: NativeStackNavigationProp<ParamListBase>;
@@ -10,93 +11,60 @@ type WelcomeScreenProps = {
 
 export function WelcomeScreen({ navigation }: WelcomeScreenProps) {
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-        <Image
-          source={require('../../assets/logo.png')}
-          style={styles.logo}
-          resizeMode="contain"
-        />
+    <LinearGradient
+      colors={['#07254C', '#04152D', '#020B18']}
+      locations={[0, 0.45, 1]}
+      style={styles.container}
+    >
+      <StatusBar barStyle="light-content" />
+
+      {/* Sección Superior: Logo Principal con Brillo y Título */}
+      <View style={styles.topSection}>
+        <View style={styles.logoWrapper}>
+          {/* Capas de resplandor (Glow) */}
+          <View style={styles.glowOuter} />
+          <View style={styles.glowMid} />
+          <View style={styles.glowInner} />
+
+          <Image
+            source={require('../../assets/screen.jpg')}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+        </View>
+
         <Text style={styles.title}>
-          Tu Plataforma de Información Técnica Automotriz
+          Tu Plataforma de Información{'\n'}Técnica Automotriz
         </Text>
       </View>
 
+      {/* Sección Inferior: Créditos y Logo Institucional */}
       <View style={styles.footer}>
         <View style={styles.credits}>
           <Text style={styles.creditText}>Desarrollador: Ismael Huanaco Carpio</Text>
           <Text style={styles.creditText}>Docente: Marco Paredes</Text>
-          <Text style={styles.creditText}>2026</Text>
+          <Text style={styles.creditText}>Autotrónica — 2026</Text>
         </View>
 
         <Pressable
-          style={({ pressed }) => [styles.button, pressed && styles.buttonPressed]}
+          style={({ pressed }) => [
+            styles.bottomLogoContainer,
+            pressed && styles.buttonPressed,
+          ]}
           onPress={() => navigation.replace('Home')}
         >
-          <Text style={styles.buttonText}>INGRESAR</Text>
+          <View style={styles.bottomLogoCircle}>
+            <Image
+              source={require('../../assets/ImagenLogo.jpeg')}
+              style={styles.bottomLogo}
+              resizeMode="cover"
+            />
+          </View>
+          <Text style={styles.yearText}>2026</Text>
         </Pressable>
       </View>
-    </View>
+    </LinearGradient>
   );
 }
 
 export default WelcomeScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.background,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 24,
-    paddingVertical: 48,
-  },
-  content: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    width: 160,
-    height: 160,
-    marginBottom: 32,
-  },
-  title: {
-    color: COLORS.text,
-    fontSize: 28,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    lineHeight: 36,
-  },
-  footer: {
-    width: '100%',
-    alignItems: 'center',
-    gap: 24,
-  },
-  credits: {
-    alignItems: 'center',
-    gap: 6,
-  },
-  creditText: {
-    color: COLORS.textMuted,
-    fontSize: 14,
-    textAlign: 'center',
-  },
-  button: {
-    width: '100%',
-    backgroundColor: COLORS.primary,
-    borderRadius: 12,
-    paddingVertical: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonPressed: {
-    opacity: 0.8,
-  },
-  buttonText: {
-    color: COLORS.background,
-    fontSize: 16,
-    fontWeight: 'bold',
-    letterSpacing: 1,
-  },
-});
