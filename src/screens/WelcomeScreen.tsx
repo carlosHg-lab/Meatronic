@@ -27,7 +27,7 @@ export function WelcomeScreen({ navigation }: WelcomeScreenProps) {
           <View style={styles.glowInner} />
 
           <Image
-            source={require('../../assets/screen.jpg')}
+            source={require('../../assets/ImagenPrincipal.jpg')}
             style={styles.logo}
             resizeMode="contain"
           />

@@ -9,15 +9,4 @@ export const bottomTabsStyles = StyleSheet.create({
   tabBarLabel: {
     fontSize: 11,
   },
-  placeholder: {
-    flex: 1,
-    backgroundColor: COLORS.background,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  placeholderText: {
-    color: COLORS.text,
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
 });

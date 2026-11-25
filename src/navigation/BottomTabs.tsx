@@ -1,12 +1,12 @@
 import React from 'react';
-import { Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import HomeScreen from '../screens/HomeScreen';
-import DictionaryScreen from '../screens/DictionaryScreen';
-import CalculatorScreen from '../screens/CalculatorScreen';
-import ManualesScreen from '../screens/ManualesScreen';
-import DiagramasScreen from '../screens/DiagramasScreen';
+import { HomeScreen } from '../screens/HomeScreen';
+import { DictionaryScreen } from '../screens/DictionaryScreen';
+import { CalculatorScreen } from '../screens/CalculatorScreen';
+import { ManualesScreen } from '../screens/ManualesScreen';
+import { DiagramasScreen } from '../screens/DiagramasScreen';
+import { ProfileScreen } from '../screens/ProfileScreen';
 import { COLORS } from '../theme/colors';
 import { bottomTabsStyles as styles } from '../theme/bottomTabsStyles';
 import type { BottomTabsParamList } from './types';
@@ -35,14 +35,6 @@ const TAB_ICONS: Record<
   },
 };
 
-function PerfilScreen() {
-  return (
-    <View style={styles.placeholder}>
-      <Text style={styles.placeholderText}>Perfil</Text>
-    </View>
-  );
-}
-
 export function BottomTabs() {
   return (
     <Tab.Navigator
@@ -70,7 +62,7 @@ export function BottomTabs() {
       <Tab.Screen name="Diagramas" component={DiagramasScreen} />
       <Tab.Screen name="Calculadora" component={CalculatorScreen} />
       <Tab.Screen name="Diccionario" component={DictionaryScreen} />
-      <Tab.Screen name="Perfil" component={PerfilScreen} />
+      <Tab.Screen name="Perfil" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }

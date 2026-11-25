@@ -1,8 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import WelcomeScreen from '../screens/WelcomeScreen';
-import PdfViewerScreen from '../screens/PdfViewerScreen';
-import BottomTabs from './BottomTabs';
+import { WelcomeScreen } from '../screens/WelcomeScreen';
+import { PdfViewerScreen } from '../screens/PdfViewerScreen';
+import { BottomTabs } from './BottomTabs';
 import type { RootStackParamList } from './types';
 
 export type { RootStackParamList } from './types';

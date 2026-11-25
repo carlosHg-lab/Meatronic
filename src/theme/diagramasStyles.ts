@@ -126,9 +126,6 @@ export const diagramasStyles = StyleSheet.create({
     borderColor: COLORS.border,
     justifyContent: 'space-between',
   },
-  cardPressed: {
-    opacity: 0.85,
-  },
   cardIcon: {
     width: 46,
     height: 46,

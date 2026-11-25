@@ -6,5 +6,3 @@ export const COLORS = {
   textMuted: '#8D99AE',
   border: '#3A506B',
 } as const;
-
-export type Colors = typeof COLORS;

@@ -36,10 +36,6 @@ export const pdfViewerStyles = StyleSheet.create({
     fontSize: 11,
     marginTop: 2,
   },
-  headerPages: {
-    color: COLORS.textMuted,
-    fontSize: 12,
-  },
   navBar: {
     flexDirection: 'row',
     alignItems: 'center',

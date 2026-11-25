@@ -1,205 +1,109 @@
 import React, { useState } from 'react';
-import {
-  Keyboard,
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
-import { calculateCurrent, calculatePower } from '../calculator/formulas';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { calculatorStyles as styles } from '../theme/calculatorStyles';
 import { COLORS } from '../theme/colors';
+import { OhmTool } from '../calculator/tools/OhmTool';
+import { FuseTool } from '../calculator/tools/FuseTool';
+import { WireTool } from '../calculator/tools/WireTool';
+import { PwmTool } from '../calculator/tools/PwmTool';
+import { DisplacementTool } from '../calculator/tools/DisplacementTool';
+import { CompressionTool } from '../calculator/tools/CompressionTool';
+import { TireTool } from '../calculator/tools/TireTool';
+import { ConverterTool } from '../calculator/tools/ConverterTool';
+
+type ToolId =
+  | 'ohm'
+  | 'fuse'
+  | 'wire'
+  | 'pwm'
+  | 'displacement'
+  | 'compression'
+  | 'tire'
+  | 'converter';
+
+type IconName = React.ComponentProps<typeof MaterialCommunityIcons>['name'];
+
+type ToolDefinition = {
+  id: ToolId;
+  label: string;
+  icon: IconName;
+  Component: React.ComponentType;
+};
+
+const TOOLS: ToolDefinition[] = [
+  { id: 'ohm', label: 'Ohm', icon: 'flash', Component: OhmTool },
+  { id: 'fuse', label: 'Fusibles', icon: 'fuse', Component: FuseTool },
+  { id: 'wire', label: 'Cable', icon: 'power-plug', Component: WireTool },
+  { id: 'pwm', label: 'PWM', icon: 'waveform', Component: PwmTool },
+  { id: 'displacement', label: 'Cilindrada', icon: 'engine', Component: DisplacementTool },
+  { id: 'compression', label: 'Compresión', icon: 'gauge', Component: CompressionTool },
+  { id: 'tire', label: 'Neumáticos', icon: 'tire', Component: TireTool },
+  { id: 'converter', label: 'Conversor', icon: 'swap-horizontal', Component: ConverterTool },
+];
 
 export function CalculatorScreen() {
-  const [voltage, setVoltage] = useState('');
-  const [resistance, setResistance] = useState('');
-  const [currentResult, setCurrentResult] = useState<number | null>(null);
-  const [powerResult, setPowerResult] = useState<number | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const insets = useSafeAreaInsets();
+  const [activeToolId, setActiveToolId] = useState<ToolId>('ohm');
 
-  const handleCalculate = () => {
-    Keyboard.dismiss();
-    setError(null);
-
-    const v = parseFloat(voltage.replace(',', '.'));
-    const r = parseFloat(resistance.replace(',', '.'));
-
-    if (isNaN(v) || isNaN(r)) {
-      setError('Por favor ingresa valores numéricos válidos.');
-      setCurrentResult(null);
-      setPowerResult(null);
-      return;
-    }
-
-    if (r <= 0) {
-      setError('La resistencia debe ser mayor a 0.');
-      setCurrentResult(null);
-      setPowerResult(null);
-      return;
-    }
-
-    const current = calculateCurrent(v, r);
-    const power = calculatePower(v, current);
-
-    setCurrentResult(current);
-    setPowerResult(power);
-  };
+  const activeTool =
+    TOOLS.find((tool) => tool.id === activeToolId) ?? TOOLS[0];
+  const ActiveTool = activeTool.Component;
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.container}>
-        <Text style={styles.headerTitle}>Cálculos Electrónicos</Text>
-        <Text style={styles.subtitle}>Ley de Ohm (Corriente y Potencia)</Text>
-
-        <View style={styles.form}>
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Voltaje (V):</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Ej. 12"
-              placeholderTextColor={COLORS.textMuted}
-              keyboardType="numeric"
-              value={voltage}
-              onChangeText={setVoltage}
-            />
-          </View>
-
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Resistencia (Ω):</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Ej. 4"
-              placeholderTextColor={COLORS.textMuted}
-              keyboardType="numeric"
-              value={resistance}
-              onChangeText={setResistance}
-            />
-          </View>
-
-          {error && <Text style={styles.errorText}>{error}</Text>}
-
-          <Pressable
-            style={({ pressed }) => [styles.button, pressed && styles.buttonPressed]}
-            onPress={handleCalculate}
-          >
-            <Text style={styles.buttonText}>CALCULAR</Text>
-          </Pressable>
-        </View>
-
-        {currentResult !== null && (
-          <View style={styles.resultCard}>
-            <Text style={styles.resultTitle}>Resultados:</Text>
-            <View style={styles.resultRow}>
-              <Text style={styles.resultLabel}>Corriente (I):</Text>
-              <Text style={styles.resultValue}>
-                {currentResult.toFixed(3)} A
-              </Text>
-            </View>
-            {powerResult !== null && (
-              <View style={styles.resultRow}>
-                <Text style={styles.resultLabel}>Potencia (P):</Text>
-                <Text style={styles.resultValue}>
-                  {powerResult.toFixed(3)} W
-                </Text>
-              </View>
-            )}
-          </View>
-        )}
+    <View style={styles.container}>
+      <View style={[styles.header, { paddingTop: insets.top + 18 }]}>
+        <Text style={styles.headerKicker}>HERRAMIENTAS OFFLINE</Text>
+        <Text style={styles.headerTitle}>Calculadora de Taller</Text>
+        <Text style={styles.headerSubtitle}>
+          Cálculos eléctricos, de motor y conversiones sin conexión a internet.
+        </Text>
       </View>
-    </TouchableWithoutFeedback>
+
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styles.toolScroller}
+        contentContainerStyle={styles.toolChips}
+      >
+        {TOOLS.map((tool) => {
+          const active = tool.id === activeToolId;
+          return (
+            <TouchableOpacity
+              key={tool.id}
+              style={[styles.toolChip, active && styles.toolChipActive]}
+              activeOpacity={0.8}
+              onPress={() => setActiveToolId(tool.id)}
+            >
+              <MaterialCommunityIcons
+                name={tool.icon}
+                size={15}
+                color={active ? COLORS.background : COLORS.textMuted}
+              />
+              <Text
+                style={[
+                  styles.toolChipText,
+                  active && styles.toolChipTextActive,
+                ]}
+              >
+                {tool.label}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
+      </ScrollView>
+
+      <ScrollView
+        style={styles.content}
+        contentContainerStyle={styles.contentContainer}
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+      >
+        <ActiveTool />
+      </ScrollView>
+    </View>
   );
 }
 
 export default CalculatorScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.background,
-    paddingTop: 16,
-    paddingHorizontal: 20,
-  },
-  headerTitle: {
-    color: COLORS.text,
-    fontSize: 22,
-    fontWeight: 'bold',
-  },
-  subtitle: {
-    color: COLORS.textMuted,
-    fontSize: 14,
-    marginBottom: 24,
-    marginTop: 4,
-  },
-  form: {
-    gap: 16,
-  },
-  inputGroup: {
-    gap: 6,
-  },
-  label: {
-    color: COLORS.text,
-    fontSize: 15,
-    fontWeight: '600',
-  },
-  input: {
-    backgroundColor: COLORS.surface,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: COLORS.border,
-    color: COLORS.text,
-    fontSize: 16,
-    paddingHorizontal: 16,
-    height: 48,
-  },
-  button: {
-    backgroundColor: COLORS.primary,
-    borderRadius: 12,
-    height: 48,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 8,
-  },
-  buttonPressed: {
-    opacity: 0.8,
-  },
-  buttonText: {
-    color: COLORS.background,
-    fontSize: 16,
-    fontWeight: 'bold',
-    letterSpacing: 1,
-  },
-  errorText: {
-    color: '#E63946',
-    fontSize: 14,
-  },
-  resultCard: {
-    backgroundColor: COLORS.surface,
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: COLORS.border,
-    padding: 20,
-    marginTop: 24,
-    gap: 12,
-  },
-  resultTitle: {
-    color: COLORS.primary,
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  resultRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  resultLabel: {
-    color: COLORS.textMuted,
-    fontSize: 16,
-  },
-  resultValue: {
-    color: COLORS.text,
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-});
