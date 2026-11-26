@@ -49,7 +49,8 @@ function ManualRow({
           {document.title}
         </Text>
         <Text style={styles.rowMeta}>
-          {formatBytes(document.size)} · Manual
+          {document.size === 0 ? 'Incluido' : formatBytes(document.size)} ·
+          Manual
         </Text>
       </View>
       <MaterialCommunityIcons

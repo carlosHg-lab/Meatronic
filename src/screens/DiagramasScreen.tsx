@@ -48,7 +48,8 @@ function DiagramCard({
         {document.title}
       </Text>
       <Text style={styles.cardMeta}>
-        Diagrama · {formatBytes(document.size)}
+        Diagrama ·{' '}
+        {document.size === 0 ? 'Incluido' : formatBytes(document.size)}
       </Text>
     </TouchableOpacity>
   );

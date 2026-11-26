@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Asset } from 'expo-asset';
 import { Directory, File, Paths } from 'expo-file-system';
+import { BUNDLED_PDFS } from '../constants/bundledPdfs';
 
 export type PdfCategory = 'manuales' | 'diagramas';
 
@@ -8,7 +8,7 @@ export type PdfDocument = {
   id: string;
   name: string;
   title: string;
-  uri: string;
+  uri: string | number;
   size: number;
   category: PdfCategory;
 };
@@ -24,23 +24,8 @@ export type ImportResult = {
   failed: number;
 };
 
-type BundledPdf = {
-  module: number;
-  filename: string;
-};
-
 const ROOT_URI_KEY = '@maetronic/libraryRootUri';
 const INTERNAL_FOLDER = 'Maetronic';
-
-const BUNDLED_PDFS: Record<PdfCategory, BundledPdf[]> = {
-  manuales: [
-    {
-      module: require('../assets/manual_4Y.pdf'),
-      filename: 'manual_4Y.pdf',
-    },
-  ],
-  diagramas: [],
-};
 
 function isPickerCancelled(error: unknown): boolean {
   const message = error instanceof Error ? error.message : String(error);
@@ -167,44 +152,17 @@ function readCategory(
   }
 }
 
-async function seedBundledDocuments(
-  category: PdfCategory,
-  directory: Directory
-): Promise<void> {
-  for (const bundled of BUNDLED_PDFS[category]) {
-    try {
-      const target = new File(directory, bundled.filename);
-      if (target.exists) continue;
-
-      const asset = Asset.fromModule(bundled.module);
-      await asset.downloadAsync();
-
-      const sourceUri = asset.localUri ?? asset.uri;
-      if (!sourceUri) continue;
-
-      const source = new File(sourceUri);
-      await source.copy(target);
-    } catch (error) {
-      console.error(
-        `No se pudo preparar el PDF de ejemplo (${category}):`,
-        error
-      );
-    }
-  }
-}
-
 export async function loadLibrary(
   category: PdfCategory
 ): Promise<LibrarySnapshot> {
   const { root, isExternal } = await getActiveRoot();
   const directory = ensureCategoryDirectory(root, category);
 
-  if (!isExternal && directory) {
-    await seedBundledDocuments(category, directory);
-  }
-
   return {
-    documents: readCategory(directory, category),
+    documents: [
+      ...BUNDLED_PDFS[category],
+      ...readCategory(directory, category),
+    ],
     isExternal,
     rootName: getDisplayName(root),
   };

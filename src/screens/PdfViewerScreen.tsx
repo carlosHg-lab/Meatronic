@@ -21,8 +21,6 @@ import { useTheme, useThemedStyles } from '../theme/ThemeContext';
 import { createPdfViewerStyles } from '../theme/pdfViewerStyles';
 import type { RootStackParamList } from '../navigation/types';
 
-const LOCAL_PDF_ASSET = require('../assets/manual_4Y.pdf');
-
 type PdfViewerScreenRouteProp = RouteProp<RootStackParamList, 'PdfViewer'>;
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -32,8 +30,6 @@ type Props = {
 };
 
 type PdfSource = { uri: string; cache?: boolean } | number;
-
-const REMOTE_URI_REGEX = /^(https?|file|content|bundle-assets):\/\//i;
 
 function getNativePdfComponent() {
   try {
@@ -90,7 +86,7 @@ export function PdfViewerScreen({ route }: Props) {
         setResolvedUri(null);
         setNumPages(0);
 
-        if (typeof rawPath === 'string' && REMOTE_URI_REGEX.test(rawPath)) {
+        if (typeof rawPath === 'string' && rawPath.length > 0) {
           if (isMounted) {
             setPdfSource({
               uri: rawPath,
@@ -101,8 +97,14 @@ export function PdfViewerScreen({ route }: Props) {
           return;
         }
 
-        const moduleRef = typeof rawPath === 'number' ? rawPath : LOCAL_PDF_ASSET;
-        const asset = Asset.fromModule(moduleRef);
+        if (typeof rawPath !== 'number') {
+          if (isMounted) {
+            setError('No se recibió un documento PDF válido.');
+          }
+          return;
+        }
+
+        const asset = Asset.fromModule(rawPath);
         await asset.downloadAsync();
 
         if (!isMounted) return;
@@ -237,6 +239,7 @@ export function PdfViewerScreen({ route }: Props) {
       {pdfSource ? (
         PdfComponent && Platform.OS !== 'web' ? (
           <PdfComponent
+            key={resolvedUri ?? 'pdf'}
             source={pdfSource}
             enablePaging={true}
             scale={1.0}

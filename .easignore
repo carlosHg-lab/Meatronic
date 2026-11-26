@@ -1,0 +1,53 @@
+# EAS Build usa este archivo en lugar de .gitignore.
+# Debe contener todo lo de .gitignore más los archivos que no necesita el build.
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+.expo-shared/
+dist/
+web-build/
+expo-env.d.ts
+
+# generated native folders (Continuous Native Generation)
+/android
+/ios
+
+# Metro / builds
+.metro-health-check*
+coverage/
+
+# binarios y artefactos de compilación
+*.apk
+*.aab
+*.ipa
+*.zip
+*.orig.*
+
+# credenciales y certificados
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.pem
+
+# logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+*.log
+
+# entorno local
+.env*.local
+
+# editor / sistema
+.vscode/
+.idea/
+.DS_Store
+*.tsbuildinfo
+
+# repositorio git
+.git

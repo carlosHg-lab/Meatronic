@@ -10,7 +10,7 @@ export type BottomTabsParamList = {
 };
 
 export type PdfDocumentRef = {
-  uri: string;
+  uri: string | number;
   title: string;
 };
 
