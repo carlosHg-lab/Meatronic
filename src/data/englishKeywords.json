@@ -1,0 +1,1328 @@
+[
+  {
+    "id": "en-1",
+    "termino": "Harness",
+    "traduccion": "Arnés / mazo de cables",
+    "definicion": "Conjunto de cables, terminales y conectores que distribuye alimentación y señales entre los módulos y componentes del vehículo.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Inspect the engine harness for chafed or broken wires.",
+        "es": "Inspeccione el arnés del motor en busca de cables pelados o rotos."
+      },
+      {
+        "en": "Disconnect the harness connector before testing the sensor.",
+        "es": "Desconecte el conector del arnés antes de probar el sensor."
+      }
+    ]
+  },
+  {
+    "id": "en-2",
+    "termino": "Ground / Earth",
+    "traduccion": "Masa / tierra",
+    "definicion": "Conexión de retorno al chasis o al borne negativo que sirve como referencia de 0 V para las señales eléctricas.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Verify a clean ground at the body control module.",
+        "es": "Verifique una masa limpia en el módulo de control de carrocería."
+      },
+      {
+        "en": "Measure resistance between the sensor ground and chassis ground.",
+        "es": "Mida la resistencia entre la masa del sensor y la masa del chasis."
+      }
+    ]
+  },
+  {
+    "id": "en-3",
+    "termino": "Short to Battery",
+    "traduccion": "Cortocircuito a positivo",
+    "definicion": "Falla en la que un conductor de señal o de masa entra en contacto con una alimentación positiva, elevando su voltaje de forma anormal.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "A short to battery on the signal circuit will set this fault code.",
+        "es": "Un cortocircuito a positivo en el circuito de señal activará este código de falla."
+      },
+      {
+        "en": "Check for a short to battery between pin 2 and the fuse box.",
+        "es": "Verifique si hay un cortocircuito a positivo entre el pin 2 y la caja de fusibles."
+      }
+    ]
+  },
+  {
+    "id": "en-4",
+    "termino": "Short to Ground",
+    "traduccion": "Cortocircuito a masa",
+    "definicion": "Falla en la que un conductor positivo o de señal hace contacto con la masa, provocando exceso de corriente o pérdida de la señal.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Disconnect the sensor and check for a short to ground.",
+        "es": "Desconecte el sensor y verifique si hay un cortocircuito a masa."
+      },
+      {
+        "en": "The blown fuse indicates a short to ground in the circuit.",
+        "es": "El fusible quemado indica un cortocircuito a masa en el circuito."
+      }
+    ]
+  },
+  {
+    "id": "en-5",
+    "termino": "Open Circuit",
+    "traduccion": "Circuito abierto",
+    "definicion": "Interrupción del conductor, terminal o conexión que impide el paso de corriente por el circuito.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "An open circuit in the reference wire will cause a no-start condition.",
+        "es": "Un circuito abierto en el cable de referencia provocará una condición de no arranque."
+      },
+      {
+        "en": "Check continuity to locate the open circuit.",
+        "es": "Verifique la continuidad para localizar el circuito abierto."
+      }
+    ]
+  },
+  {
+    "id": "en-6",
+    "termino": "High Resistance",
+    "traduccion": "Alta resistencia",
+    "definicion": "Resistencia indeseada en un conductor, terminal o masa que reduce la corriente y provoca caídas de tensión.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Corroded terminals can cause high resistance in the circuit.",
+        "es": "Los terminales corroídos pueden causar alta resistencia en el circuito."
+      },
+      {
+        "en": "Perform a voltage drop test to find high resistance.",
+        "es": "Realice una prueba de caída de tensión para encontrar alta resistencia."
+      }
+    ]
+  },
+  {
+    "id": "en-7",
+    "termino": "Voltage Drop",
+    "traduccion": "Caída de tensión",
+    "definicion": "Diferencia de voltaje medida entre dos puntos de un circuito con carga; revela resistencias parásitas en cables, terminales o masas.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "A voltage drop greater than 0.5 V indicates a bad connection.",
+        "es": "Una caída de tensión mayor a 0,5 V indica una conexión deficiente."
+      },
+      {
+        "en": "Measure voltage drop across the ground strap while cranking.",
+        "es": "Mida la caída de tensión en el cable de masa durante el arranque."
+      }
+    ]
+  },
+  {
+    "id": "en-8",
+    "termino": "Continuity",
+    "traduccion": "Continuidad",
+    "definicion": "Condición de un circuito cerrado que permite el paso de corriente; se comprueba con el óhmetro o la función de continuidad.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Check continuity between the connector and the module pin.",
+        "es": "Verifique la continuidad entre el conector y el pin del módulo."
+      },
+      {
+        "en": "There should be continuity with the switch closed.",
+        "es": "Debe haber continuidad con el interruptor cerrado."
+      }
+    ]
+  },
+  {
+    "id": "en-9",
+    "termino": "Backprobe",
+    "traduccion": "Sondear por detrás del conector",
+    "definicion": "Técnica de medir una señal introduciendo la punta del multímetro por la parte posterior del conector sin desconectarlo.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Backprobe the signal wire while the engine is running.",
+        "es": "Sondee el cable de señal por detrás del conector con el motor en marcha."
+      },
+      {
+        "en": "Do not damage the terminal when backprobing the connector.",
+        "es": "No dañe el terminal al sondear por detrás del conector."
+      }
+    ]
+  },
+  {
+    "id": "en-10",
+    "termino": "Pinout",
+    "traduccion": "Asignación de pines",
+    "definicion": "Distribución y función de cada pin de un conector o módulo, representada en tablas y diagramas de servicio.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Refer to the connector pinout before probing any circuit.",
+        "es": "Consulte la asignación de pines del conector antes de sondear cualquier circuito."
+      },
+      {
+        "en": "Pin 4 of the pinout is the sensor reference voltage.",
+        "es": "El pin 4 de la asignación corresponde al voltaje de referencia del sensor."
+      }
+    ]
+  },
+  {
+    "id": "en-11",
+    "termino": "Connector Terminal",
+    "traduccion": "Terminal del conector",
+    "definicion": "Contacto metálico dentro del conector que transmite corriente y señal; puede deformarse o perder tensión con el uso.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Inspect the connector terminal for corrosion or damage.",
+        "es": "Inspeccione el terminal del conector en busca de corrosión o daños."
+      },
+      {
+        "en": "Replace the terminal if it is loose in the connector.",
+        "es": "Reemplace el terminal si está flojo en el conector."
+      }
+    ]
+  },
+  {
+    "id": "en-12",
+    "termino": "Wire Gauge",
+    "traduccion": "Calibre del cable",
+    "definicion": "Medida normalizada del diámetro del conductor (AWG o mm²) que determina su capacidad de corriente y resistencia.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Use the same wire gauge when repairing the harness.",
+        "es": "Use el mismo calibre de cable al reparar el arnés."
+      },
+      {
+        "en": "A smaller wire gauge number means a thicker conductor.",
+        "es": "Un número de calibre menor significa un conductor más grueso."
+      }
+    ]
+  },
+  {
+    "id": "en-13",
+    "termino": "Twisted Pair",
+    "traduccion": "Par trenzado",
+    "definicion": "Dos conductores entrelazados que transportan señales diferenciales y reducen la influencia de interferencias electromagnéticas.",
+    "categoria": "Comunicación",
+    "ejemplos": [
+      {
+        "en": "The CAN bus uses a twisted pair to reject electrical noise.",
+        "es": "El bus CAN utiliza un par trenzado para rechazar el ruido eléctrico."
+      },
+      {
+        "en": "Keep the twisted pair length equal when making a repair.",
+        "es": "Mantenga igual longitud del par trenzado al realizar una reparación."
+      }
+    ]
+  },
+  {
+    "id": "en-14",
+    "termino": "Shielded Wire",
+    "traduccion": "Cable apantallado",
+    "definicion": "Conductor rodeado por una malla o lámina conectada a masa que protege señales sensibles frente al ruido electromagnético.",
+    "categoria": "Comunicación",
+    "ejemplos": [
+      {
+        "en": "The shield of the shielded wire must be grounded at one end only.",
+        "es": "La pantalla del cable apantallado debe conectarse a masa en un solo extremo."
+      },
+      {
+        "en": "Do not splice a shielded wire near the sensor.",
+        "es": "No empalme un cable apantallado cerca del sensor."
+      }
+    ]
+  },
+  {
+    "id": "en-15",
+    "termino": "Relay",
+    "traduccion": "Relé",
+    "definicion": "Interruptor electromecánico que permite que una señal de baja corriente controle una carga de mayor consumo.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Swap the relay with a known good one to verify the circuit.",
+        "es": "Intercambie el relé por uno en buen estado para verificar el circuito."
+      },
+      {
+        "en": "Check for voltage at relay terminal 86 during the activation test.",
+        "es": "Verifique el voltaje en el terminal 86 del relé durante la prueba de activación."
+      }
+    ]
+  },
+  {
+    "id": "en-16",
+    "termino": "Fuse",
+    "traduccion": "Fusible",
+    "definicion": "Elemento de protección que se funde y abre el circuito cuando la corriente supera su valor nominal.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Replace the blown fuse only after repairing the short circuit.",
+        "es": "Reemplace el fusible quemado solo después de reparar el cortocircuito."
+      },
+      {
+        "en": "Check the fuse with a test light or a multimeter.",
+        "es": "Verifique el fusible con una lámpara de prueba o un multímetro."
+      }
+    ]
+  },
+  {
+    "id": "en-17",
+    "termino": "Fusible Link",
+    "traduccion": "Fusible de enlace",
+    "definicion": "Fusible de alta corriente instalado en el cable principal de alimentación para proteger todo un circuito o grupo de cargas.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "The fusible link protects the main feed to the fuse box.",
+        "es": "El fusible de enlace protege la alimentación principal de la caja de fusibles."
+      },
+      {
+        "en": "A stretched fusible link may indicate an overload.",
+        "es": "Un fusible de enlace estirado puede indicar una sobrecarga."
+      }
+    ]
+  },
+  {
+    "id": "en-18",
+    "termino": "Circuit Breaker",
+    "traduccion": "Cortacircuitos",
+    "definicion": "Dispositivo de protección rearmable que interrumpe la corriente ante una sobrecarga o cortocircuito.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Reset the circuit breaker and recheck the window motor operation.",
+        "es": "Reinicie el cortacircuitos y vuelva a comprobar el funcionamiento del motor del elevalunas."
+      },
+      {
+        "en": "The circuit breaker opens when current exceeds its rating.",
+        "es": "El cortacircuitos se abre cuando la corriente supera su valor nominal."
+      }
+    ]
+  },
+  {
+    "id": "en-19",
+    "termino": "Parasitic Draw",
+    "traduccion": "Consumo parásito",
+    "definicion": "Corriente que sigue fluyendo con el vehículo apagado y que puede descargar la batería si excede el valor especificado.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Measure parasitic draw after all modules go to sleep.",
+        "es": "Mida el consumo parásito después de que todos los módulos entren en reposo."
+      },
+      {
+        "en": "A high parasitic draw can discharge the battery overnight.",
+        "es": "Un consumo parásito alto puede descargar la batería durante la noche."
+      }
+    ]
+  },
+  {
+    "id": "en-20",
+    "termino": "Waveform",
+    "traduccion": "Forma de onda",
+    "definicion": "Representación gráfica del voltaje o la corriente en función del tiempo, usada para analizar señales de sensores y actuadores.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Compare the camshaft waveform with the crankshaft waveform.",
+        "es": "Compare la forma de onda del árbol de levas con la del cigüeñal."
+      },
+      {
+        "en": "A distorted waveform may indicate a failing sensor.",
+        "es": "Una forma de onda distorsionada puede indicar un sensor defectuoso."
+      }
+    ]
+  },
+  {
+    "id": "en-21",
+    "termino": "Duty Cycle",
+    "traduccion": "Ciclo de trabajo",
+    "definicion": "Porcentaje del tiempo que una señal permanece activa dentro de un período; se usa para controlar solenoides, válvulas y ventiladores.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "The purge solenoid is controlled by a duty cycle signal.",
+        "es": "El solenoide de purga se controla mediante una señal de ciclo de trabajo."
+      },
+      {
+        "en": "Check the duty cycle at idle and at 2500 rpm.",
+        "es": "Verifique el ciclo de trabajo en ralentí y a 2500 rpm."
+      }
+    ]
+  },
+  {
+    "id": "en-22",
+    "termino": "Frequency",
+    "traduccion": "Frecuencia",
+    "definicion": "Número de ciclos por segundo de una señal, expresado en hercios (Hz); permite evaluar sensores de velocidad y señales PWM.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Measure the frequency of the wheel speed sensor signal.",
+        "es": "Mida la frecuencia de la señal del sensor de velocidad de rueda."
+      },
+      {
+        "en": "Frequency should increase with engine speed.",
+        "es": "La frecuencia debe aumentar con la velocidad del motor."
+      }
+    ]
+  },
+  {
+    "id": "en-23",
+    "termino": "Pulse Width Modulation (PWM)",
+    "traduccion": "Modulación por ancho de pulsos",
+    "definicion": "Técnica que varía el tiempo activo de una señal para controlar la potencia media entregada a un actuador.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "The fan speed is controlled by a PWM signal.",
+        "es": "La velocidad del ventilador se controla mediante una señal PWM."
+      },
+      {
+        "en": "Use a duty cycle meter to verify the PWM output.",
+        "es": "Use un medidor de ciclo de trabajo para verificar la salida PWM."
+      }
+    ]
+  },
+  {
+    "id": "en-24",
+    "termino": "Sensor Reference Voltage",
+    "traduccion": "Voltaje de referencia del sensor",
+    "definicion": "Tensión estabilizada, normalmente de 5 V, que el módulo entrega a los sensores para alimentar su electrónica y generar la señal.",
+    "categoria": "Sensores",
+    "ejemplos": [
+      {
+        "en": "Check for 5 V at the sensor reference voltage circuit.",
+        "es": "Verifique 5 V en el circuito de voltaje de referencia del sensor."
+      },
+      {
+        "en": "A shorted reference voltage can affect several sensors.",
+        "es": "Un voltaje de referencia en cortocircuito puede afectar a varios sensores."
+      }
+    ]
+  },
+  {
+    "id": "en-25",
+    "termino": "Signal Return",
+    "traduccion": "Retorno de señal",
+    "definicion": "Conductor de retorno dedicado que proporciona la referencia de masa para un sensor y evita errores por caídas de tensión.",
+    "categoria": "Sensores",
+    "ejemplos": [
+      {
+        "en": "Measure resistance between signal return and chassis ground.",
+        "es": "Mida la resistencia entre el retorno de señal y la masa del chasis."
+      },
+      {
+        "en": "Do not use the signal return as a power ground.",
+        "es": "No utilice el retorno de señal como masa de potencia."
+      }
+    ]
+  },
+  {
+    "id": "en-26",
+    "termino": "Pull-up Resistor",
+    "traduccion": "Resistencia de pull-up",
+    "definicion": "Resistencia que mantiene una línea de señal en un nivel alto hasta que el sensor o interruptor la lleva a masa.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "The switch input is held high by a pull-up resistor.",
+        "es": "La entrada del interruptor se mantiene en alto mediante una resistencia de pull-up."
+      },
+      {
+        "en": "An open circuit will make the pull-up resistor read system voltage.",
+        "es": "Un circuito abierto hará que la resistencia de pull-up lea el voltaje del sistema."
+      }
+    ]
+  },
+  {
+    "id": "en-27",
+    "termino": "Hall Effect Sensor",
+    "traduccion": "Sensor de efecto Hall",
+    "definicion": "Sensor que detecta campos magnéticos y entrega una señal digital de voltaje, frecuente en posición de cigüeñal, levas y velocidad.",
+    "categoria": "Sensores",
+    "ejemplos": [
+      {
+        "en": "The crankshaft Hall effect sensor produces a square wave signal.",
+        "es": "El sensor de efecto Hall del cigüeñal genera una señal de onda cuadrada."
+      },
+      {
+        "en": "Verify the Hall effect sensor supply and ground before replacing it.",
+        "es": "Verifique la alimentación y la masa del sensor de efecto Hall antes de reemplazarlo."
+      }
+    ]
+  },
+  {
+    "id": "en-28",
+    "termino": "Potentiometer",
+    "traduccion": "Potenciómetro",
+    "definicion": "Sensor de tres hilos cuya resistencia varía con la posición y entrega una señal de voltaje proporcional.",
+    "categoria": "Sensores",
+    "ejemplos": [
+      {
+        "en": "Sweep the throttle potentiometer slowly while watching the signal.",
+        "es": "Recorra lentamente el potenciómetro de la mariposa mientras observa la señal."
+      },
+      {
+        "en": "Look for dropouts in the potentiometer voltage.",
+        "es": "Busque cortes en el voltaje del potenciómetro."
+      }
+    ]
+  },
+  {
+    "id": "en-29",
+    "termino": "Actuator",
+    "traduccion": "Actuador",
+    "definicion": "Componente que convierte una orden eléctrica del módulo en movimiento, presión, calor o luz.",
+    "categoria": "Actuadores",
+    "ejemplos": [
+      {
+        "en": "Use the scan tool to activate the actuator and observe its operation.",
+        "es": "Use el escáner para activar el actuador y observar su funcionamiento."
+      },
+      {
+        "en": "The actuator receives power and ground from the control module.",
+        "es": "El actuador recibe alimentación y masa del módulo de control."
+      }
+    ]
+  },
+  {
+    "id": "en-30",
+    "termino": "Solenoid",
+    "traduccion": "Solenoide",
+    "definicion": "Electroimán que convierte corriente en movimiento lineal para accionar válvulas, seguros o compuertas.",
+    "categoria": "Actuadores",
+    "ejemplos": [
+      {
+        "en": "Measure the solenoid resistance and compare it with the specification.",
+        "es": "Mida la resistencia del solenoide y compárela con la especificación."
+      },
+      {
+        "en": "A clicking solenoid indicates that the control circuit is working.",
+        "es": "Un solenoide que hace clic indica que el circuito de control está funcionando."
+      }
+    ]
+  },
+  {
+    "id": "en-31",
+    "termino": "Fault Code",
+    "traduccion": "Código de falla",
+    "definicion": "Código almacenado por un módulo cuando detecta una condición fuera de rango; también se denomina DTC.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Record all fault codes before clearing them.",
+        "es": "Registre todos los códigos de falla antes de borrarlos."
+      },
+      {
+        "en": "The fault code points to an open circuit in the injector.",
+        "es": "El código de falla apunta a un circuito abierto en el inyector."
+      }
+    ]
+  },
+  {
+    "id": "en-32",
+    "termino": "Freeze Frame",
+    "traduccion": "Instantánea de datos",
+    "definicion": "Datos del motor guardados por la ECU en el momento en que se registra un código de falla.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Review the freeze frame data to reproduce the fault conditions.",
+        "es": "Revise los datos de la instantánea para reproducir las condiciones de la falla."
+      },
+      {
+        "en": "The freeze frame shows the misfire occurred at high load.",
+        "es": "La instantánea muestra que la falla de combustión ocurrió con carga alta."
+      }
+    ]
+  },
+  {
+    "id": "en-33",
+    "termino": "Live Data / Datastream",
+    "traduccion": "Datos en vivo",
+    "definicion": "Lecturas actualizadas en tiempo real de sensores y parámetros que el escáner muestra mientras el vehículo funciona.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Compare the live data with the values in the service manual.",
+        "es": "Compare los datos en vivo con los valores del manual de servicio."
+      },
+      {
+        "en": "Watch the datastream while wiggling the harness.",
+        "es": "Observe los datos en vivo mientras mueve el arnés."
+      }
+    ]
+  },
+  {
+    "id": "en-34",
+    "termino": "Scan Tool",
+    "traduccion": "Escáner",
+    "definicion": "Herramienta de diagnóstico que se conecta al puerto OBD-II para leer códigos, datos en vivo y ejecutar pruebas.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Connect the scan tool to the data link connector.",
+        "es": "Conecte el escáner al conector de enlace de datos."
+      },
+      {
+        "en": "The scan tool cannot communicate with the body control module.",
+        "es": "El escáner no puede comunicarse con el módulo de control de carrocería."
+      }
+    ]
+  },
+  {
+    "id": "en-35",
+    "termino": "Key On Engine Off (KOEO)",
+    "traduccion": "Contacto encendido, motor apagado",
+    "definicion": "Condición de prueba con la llave en posición de contacto y el motor detenido, usada para verificar circuitos y códigos almacenados.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Perform the KOEO self-test before starting the engine.",
+        "es": "Realice la autoprueba KOEO antes de arrancar el motor."
+      },
+      {
+        "en": "Check the sensor voltage with the key on engine off.",
+        "es": "Verifique el voltaje del sensor con el contacto encendido y el motor apagado."
+      }
+    ]
+  },
+  {
+    "id": "en-36",
+    "termino": "Key On Engine Running (KOER)",
+    "traduccion": "Contacto encendido, motor en marcha",
+    "definicion": "Condición de prueba con el motor en funcionamiento, utilizada para evaluar señales dinámicas y pruebas funcionales.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Run the KOER test after the engine reaches operating temperature.",
+        "es": "Ejecute la prueba KOER después de que el motor alcance la temperatura de servicio."
+      },
+      {
+        "en": "The KOER test may reveal intermittent sensor faults.",
+        "es": "La prueba KOER puede revelar fallas intermitentes de sensores."
+      }
+    ]
+  },
+  {
+    "id": "en-37",
+    "termino": "Cranks but No Start",
+    "traduccion": "Gira pero no arranca",
+    "definicion": "Condición en la que el motor de arranque hace girar el motor, pero no se produce combustión.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "A cranks but no start condition may be caused by a faulty crankshaft sensor.",
+        "es": "Una condición de gira pero no arranca puede deberse a un sensor de cigüeñal defectuoso."
+      },
+      {
+        "en": "Check for spark and fuel pressure when the engine cranks but does not start.",
+        "es": "Verifique chispa y presión de combustible cuando el motor gira pero no arranca."
+      }
+    ]
+  },
+  {
+    "id": "en-38",
+    "termino": "Misfire",
+    "traduccion": "Falla de combustión",
+    "definicion": "Falta de combustión en uno o más cilindros que provoca pérdida de potencia, vibración y posibles daños al catalizador.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "The misfire counter shows multiple events on cylinder 3.",
+        "es": "El contador de fallas de combustión muestra varios eventos en el cilindro 3."
+      },
+      {
+        "en": "Swap the ignition coil to isolate the misfire.",
+        "es": "Intercambie la bobina de encendido para aislar la falla de combustión."
+      }
+    ]
+  },
+  {
+    "id": "en-39",
+    "termino": "Lean Mixture",
+    "traduccion": "Mezcla pobre",
+    "definicion": "Mezcla con exceso de aire o falta de combustible, que puede causar detonación, pérdida de potencia y temperaturas elevadas.",
+    "categoria": "Motor",
+    "ejemplos": [
+      {
+        "en": "A vacuum leak can cause a lean mixture and a P0171 code.",
+        "es": "Una fuga de vacío puede causar una mezcla pobre y un código P0171."
+      },
+      {
+        "en": "Check fuel pressure if the mixture is lean under load.",
+        "es": "Verifique la presión de combustible si la mezcla es pobre con carga."
+      }
+    ]
+  },
+  {
+    "id": "en-40",
+    "termino": "Rich Mixture",
+    "traduccion": "Mezcla rica",
+    "definicion": "Mezcla con exceso de combustible o falta de aire, que aumenta el consumo y las emisiones de hidrocarburos.",
+    "categoria": "Motor",
+    "ejemplos": [
+      {
+        "en": "A leaking injector can cause a rich mixture and a P0172 code.",
+        "es": "Un inyector que gotea puede causar una mezcla rica y un código P0172."
+      },
+      {
+        "en": "Check the coolant temperature sensor if the mixture stays rich.",
+        "es": "Verifique el sensor de temperatura del refrigerante si la mezcla permanece rica."
+      }
+    ]
+  },
+  {
+    "id": "en-41",
+    "termino": "Ignition Coil",
+    "traduccion": "Bobina de encendido",
+    "definicion": "Transformador que eleva el voltaje de la batería para generar la chispa en la bujía.",
+    "categoria": "Encendido",
+    "ejemplos": [
+      {
+        "en": "Measure the primary and secondary resistance of the ignition coil.",
+        "es": "Mida la resistencia primaria y secundaria de la bobina de encendido."
+      },
+      {
+        "en": "A cracked ignition coil can cause a misfire under load.",
+        "es": "Una bobina de encendido agrietada puede causar una falla de combustión con carga."
+      }
+    ]
+  },
+  {
+    "id": "en-42",
+    "termino": "Spark Plug",
+    "traduccion": "Bujía",
+    "definicion": "Elemento que produce la chispa para iniciar la combustión en motores de gasolina.",
+    "categoria": "Encendido",
+    "ejemplos": [
+      {
+        "en": "Check the spark plug gap and electrode wear.",
+        "es": "Verifique la separación de electrodos y el desgaste de la bujía."
+      },
+      {
+        "en": "Replace the spark plugs according to the maintenance interval.",
+        "es": "Reemplace las bujías según el intervalo de mantenimiento."
+      }
+    ]
+  },
+  {
+    "id": "en-43",
+    "termino": "Fuel Injector",
+    "traduccion": "Inyector de combustible",
+    "definicion": "Electroválvula que pulveriza combustible en la admisión o directamente en el cilindro.",
+    "categoria": "Inyección",
+    "ejemplos": [
+      {
+        "en": "Test the fuel injector resistance and compare it with the specification.",
+        "es": "Pruebe la resistencia del inyector de combustible y compárela con la especificación."
+      },
+      {
+        "en": "A clogged fuel injector can cause a lean condition on one cylinder.",
+        "es": "Un inyector de combustible obstruido puede causar mezcla pobre en un cilindro."
+      }
+    ]
+  },
+  {
+    "id": "en-44",
+    "termino": "Throttle Body",
+    "traduccion": "Cuerpo de aceleración",
+    "definicion": "Conjunto que regula el aire de admisión mediante una mariposa, accionada por cable o electrónicamente.",
+    "categoria": "Actuadores",
+    "ejemplos": [
+      {
+        "en": "Clean the throttle body and perform the idle relearn procedure.",
+        "es": "Limpie el cuerpo de aceleración y realice el procedimiento de reaprendizaje de ralentí."
+      },
+      {
+        "en": "The electronic throttle body must be calibrated after replacement.",
+        "es": "El cuerpo de aceleración electrónico debe calibrarse después del reemplazo."
+      }
+    ]
+  },
+  {
+    "id": "en-45",
+    "termino": "Mass Air Flow (MAF) Sensor",
+    "traduccion": "Sensor de flujo de masa de aire",
+    "definicion": "Sensor que mide la cantidad de aire que ingresa al motor para calcular la carga y la cantidad de combustible.",
+    "categoria": "Sensores",
+    "ejemplos": [
+      {
+        "en": "Compare the MAF sensor reading with the expected value at idle.",
+        "es": "Compare la lectura del sensor MAF con el valor esperado en ralentí."
+      },
+      {
+        "en": "A contaminated MAF sensor can cause lean or rich conditions.",
+        "es": "Un sensor MAF contaminado puede causar condiciones de mezcla pobre o rica."
+      }
+    ]
+  },
+  {
+    "id": "en-46",
+    "termino": "Manifold Absolute Pressure (MAP) Sensor",
+    "traduccion": "Sensor de presión absoluta del colector",
+    "definicion": "Sensor que mide la presión del colector de admisión para estimar la carga del motor y la masa de aire.",
+    "categoria": "Sensores",
+    "ejemplos": [
+      {
+        "en": "The MAP sensor voltage should change with engine vacuum.",
+        "es": "El voltaje del sensor MAP debe cambiar con el vacío del motor."
+      },
+      {
+        "en": "Check the MAP sensor hose for restrictions or leaks.",
+        "es": "Verifique la manguera del sensor MAP en busca de restricciones o fugas."
+      }
+    ]
+  },
+  {
+    "id": "en-47",
+    "termino": "Oxygen Sensor",
+    "traduccion": "Sonda de oxígeno",
+    "definicion": "Sensor en el escape que mide el oxígeno residual y permite ajustar la mezcla aire-combustible.",
+    "categoria": "Sensores",
+    "ejemplos": [
+      {
+        "en": "The oxygen sensor should switch rapidly when the mixture is correct.",
+        "es": "La sonda de oxígeno debe conmutar rápidamente cuando la mezcla es correcta."
+      },
+      {
+        "en": "Check the oxygen sensor heater circuit if no activity is seen.",
+        "es": "Verifique el circuito del calentador de la sonda de oxígeno si no se observa actividad."
+      }
+    ]
+  },
+  {
+    "id": "en-48",
+    "termino": "Camshaft Position Sensor",
+    "traduccion": "Sensor de posición del árbol de levas",
+    "definicion": "Sensor que identifica la fase de cada cilindro para sincronizar la inyección y el encendido secuencial.",
+    "categoria": "Sensores",
+    "ejemplos": [
+      {
+        "en": "The camshaft position sensor signal must be synchronized with the crankshaft signal.",
+        "es": "La señal del sensor de posición del árbol de levas debe estar sincronizada con la del cigüeñal."
+      },
+      {
+        "en": "Inspect the camshaft position sensor reluctor for damage.",
+        "es": "Inspeccione el reluctor del sensor de posición del árbol de levas en busca de daños."
+      }
+    ]
+  },
+  {
+    "id": "en-49",
+    "termino": "Crankshaft Position Sensor",
+    "traduccion": "Sensor de posición del cigüeñal",
+    "definicion": "Sensor que informa la velocidad y la posición angular del cigüeñal para sincronizar el encendido y la inyección.",
+    "categoria": "Sensores",
+    "ejemplos": [
+      {
+        "en": "A failed crankshaft position sensor can cause a no-start condition.",
+        "es": "Un sensor de posición del cigüeñal defectuoso puede causar una condición de no arranque."
+      },
+      {
+        "en": "Check the crankshaft position sensor air gap and signal.",
+        "es": "Verifique el entrehierro y la señal del sensor de posición del cigüeñal."
+      }
+    ]
+  },
+  {
+    "id": "en-50",
+    "termino": "Transmission Solenoid",
+    "traduccion": "Solenoide de transmisión",
+    "definicion": "Electroválvula del cuerpo de válvulas que controla presión y flujo para seleccionar marchas o bloquear el convertidor.",
+    "categoria": "Transmisión",
+    "ejemplos": [
+      {
+        "en": "Measure the transmission solenoid resistance at the connector.",
+        "es": "Mida la resistencia del solenoide de transmisión en el conector."
+      },
+      {
+        "en": "A sticking transmission solenoid can cause harsh shifts.",
+        "es": "Un solenoide de transmisión pegado puede causar cambios bruscos."
+      }
+    ]
+  },
+  {
+    "id": "en-51",
+    "termino": "Torque Converter Clutch (TCC)",
+    "traduccion": "Embrague del convertidor de par",
+    "definicion": "Embrague interno que bloquea el convertidor para eliminar el deslizamiento y mejorar el consumo.",
+    "categoria": "Transmisión",
+    "ejemplos": [
+      {
+        "en": "The TCC should apply smoothly at steady cruise speed.",
+        "es": "El TCC debe aplicarse suavemente a velocidad de crucero constante."
+      },
+      {
+        "en": "A shudder during TCC apply may indicate a worn clutch.",
+        "es": "Una vibración durante la aplicación del TCC puede indicar un embrague desgastado."
+      }
+    ]
+  },
+  {
+    "id": "en-52",
+    "termino": "Wheel Speed Sensor",
+    "traduccion": "Sensor de velocidad de rueda",
+    "definicion": "Sensor que entrega pulsos de velocidad al ABS, al control de estabilidad y al TPMS indirecto.",
+    "categoria": "Sensores",
+    "ejemplos": [
+      {
+        "en": "Compare the wheel speed sensor readings on all four wheels.",
+        "es": "Compare las lecturas del sensor de velocidad en las cuatro ruedas."
+      },
+      {
+        "en": "Inspect the wheel speed sensor tone ring for debris.",
+        "es": "Inspeccione la corona del sensor de velocidad de rueda en busca de suciedad."
+      }
+    ]
+  },
+  {
+    "id": "en-53",
+    "termino": "Body Control Module (BCM)",
+    "traduccion": "Módulo de control de carrocería",
+    "definicion": "Módulo que administra luces, seguros, elevalunas, limpiaparabrisas y otras funciones eléctricas del habitáculo.",
+    "categoria": "Electrónica",
+    "ejemplos": [
+      {
+        "en": "The BCM controls the interior lights and the central locking.",
+        "es": "El BCM controla las luces interiores y el cierre centralizado."
+      },
+      {
+        "en": "Check the BCM ground before replacing the module.",
+        "es": "Verifique la masa del BCM antes de reemplazar el módulo."
+      }
+    ]
+  },
+  {
+    "id": "en-54",
+    "termino": "Immobilizer",
+    "traduccion": "Inmovilizador",
+    "definicion": "Sistema antirrobo que valida la llave o el transponder y bloquea el arranque si no se reconoce.",
+    "categoria": "Seguridad",
+    "ejemplos": [
+      {
+        "en": "The immobilizer prevents the engine from starting without a valid key.",
+        "es": "El inmovilizador impide que el motor arranque sin una llave válida."
+      },
+      {
+        "en": "Program the new key to the immobilizer after replacement.",
+        "es": "Programe la nueva llave en el inmovilizador después del reemplazo."
+      }
+    ]
+  },
+  {
+    "id": "en-55",
+    "termino": "CAN High / CAN Low",
+    "traduccion": "CAN alto / CAN bajo",
+    "definicion": "Par de líneas diferenciales del bus CAN que transportan la señal complementaria que define los bits.",
+    "categoria": "Comunicación",
+    "ejemplos": [
+      {
+        "en": "Measure the voltage on CAN High and CAN Low with the ignition on.",
+        "es": "Mida el voltaje en CAN alto y CAN bajo con el contacto encendido."
+      },
+      {
+        "en": "CAN High and CAN Low should not be shorted together.",
+        "es": "CAN alto y CAN bajo no deben estar en cortocircuito entre sí."
+      }
+    ]
+  },
+  {
+    "id": "en-56",
+    "termino": "Bus Off",
+    "traduccion": "Bus fuera de servicio",
+    "definicion": "Estado en el que un nodo CAN deja de transmitir por haber acumulado demasiados errores en el bus.",
+    "categoria": "Comunicación",
+    "ejemplos": [
+      {
+        "en": "A module with a bus off fault may stop communicating entirely.",
+        "es": "Un módulo con falla de bus off puede dejar de comunicarse por completo."
+      },
+      {
+        "en": "Check the bus wiring and terminating resistors after a bus off event.",
+        "es": "Verifique el cableado del bus y las resistencias de terminación después de un evento de bus off."
+      }
+    ]
+  },
+  {
+    "id": "en-57",
+    "termino": "Module Configuration",
+    "traduccion": "Configuración del módulo",
+    "definicion": "Conjunto de parámetros y variantes que deben programarse en un módulo para que funcione con el vehículo específico.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Perform the module configuration after replacing the BCM.",
+        "es": "Realice la configuración del módulo después de reemplazar el BCM."
+      },
+      {
+        "en": "An incorrect module configuration can set communication faults.",
+        "es": "Una configuración incorrecta del módulo puede activar fallas de comunicación."
+      }
+    ]
+  },
+  {
+    "id": "en-58",
+    "termino": "Flash / Reprogram",
+    "traduccion": "Reprogramar / flashear",
+    "definicion": "Proceso de escribir nuevo software o calibración en la memoria de un módulo de control.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Flash the ECM with the latest calibration before diagnosing further.",
+        "es": "Reprograme la ECM con la última calibración antes de continuar el diagnóstico."
+      },
+      {
+        "en": "Keep the battery charger connected while reprogramming the module.",
+        "es": "Mantenga el cargador de batería conectado mientras reprograma el módulo."
+      }
+    ]
+  },
+  {
+    "id": "en-59",
+    "termino": "Adaptive Learning",
+    "traduccion": "Aprendizaje adaptativo",
+    "definicion": "Ajustes que el módulo guarda según el desgaste y el comportamiento real para corregir sus estrategias de control.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Clear the adaptive learning values after replacing the transmission.",
+        "es": "Borre los valores de aprendizaje adaptativo después de reemplazar la transmisión."
+      },
+      {
+        "en": "The engine must relearn idle after the adaptive memory is reset.",
+        "es": "El motor debe reaprender el ralentí después de reiniciar la memoria adaptativa."
+      }
+    ]
+  },
+  {
+    "id": "en-60",
+    "termino": "Evaporative Emission (EVAP)",
+    "traduccion": "Emisiones evaporativas",
+    "definicion": "Sistema que captura y quema los vapores de combustible del tanque para evitar su liberación a la atmósfera.",
+    "categoria": "Motor",
+    "ejemplos": [
+      {
+        "en": "Perform an EVAP smoke test to locate the leak.",
+        "es": "Realice una prueba de humo en el sistema EVAP para localizar la fuga."
+      },
+      {
+        "en": "The EVAP monitor may not run with a loose fuel cap.",
+        "es": "El monitor EVAP puede no ejecutarse con el tapón de combustible flojo."
+      }
+    ]
+  },
+  {
+    "id": "en-61",
+    "termino": "Purge Valve",
+    "traduccion": "Válvula de purga",
+    "definicion": "Electroválvula que permite el paso de vapores del tanque al colector de admisión en momentos controlados.",
+    "categoria": "Actuadores",
+    "ejemplos": [
+      {
+        "en": "The purge valve should be closed with the engine off.",
+        "es": "La válvula de purga debe estar cerrada con el motor apagado."
+      },
+      {
+        "en": "A stuck-open purge valve can cause a rough idle.",
+        "es": "Una válvula de purga trabada abierta puede causar un ralentí irregular."
+      }
+    ]
+  },
+  {
+    "id": "en-62",
+    "termino": "Exhaust Gas Recirculation (EGR)",
+    "traduccion": "Recirculación de gases de escape",
+    "definicion": "Sistema que reintroduce gases de escape en la admisión para reducir la temperatura de combustión y las emisiones de NOx.",
+    "categoria": "Actuadores",
+    "ejemplos": [
+      {
+        "en": "Check the EGR valve for carbon buildup and free movement.",
+        "es": "Verifique la válvula EGR en busca de acumulación de carbonilla y libre movimiento."
+      },
+      {
+        "en": "A restricted EGR passage can cause detonation.",
+        "es": "Un conducto EGR restringido puede causar detonación."
+      }
+    ]
+  },
+  {
+    "id": "en-63",
+    "termino": "Variable Valve Timing (VVT)",
+    "traduccion": "Distribución variable",
+    "definicion": "Sistema que varía el sincronismo de las válvulas o del árbol de levas para mejorar potencia, consumo y emisiones.",
+    "categoria": "Motor",
+    "ejemplos": [
+      {
+        "en": "The VVT solenoid controls oil flow to the camshaft phaser.",
+        "es": "El solenoide VVT controla el flujo de aceite hacia el variador del árbol de levas."
+      },
+      {
+        "en": "Inspect the VVT screen for sludge if the timing is erratic.",
+        "es": "Inspeccione el filtro VVT en busca de lodos si la distribución es errática."
+      }
+    ]
+  },
+  {
+    "id": "en-64",
+    "termino": "Turbocharger",
+    "traduccion": "Turbocompresor",
+    "definicion": "Turbina movida por los gases de escape que comprime el aire de admisión para aumentar la potencia del motor.",
+    "categoria": "Motor",
+    "ejemplos": [
+      {
+        "en": "Check the turbocharger for shaft play and oil leaks.",
+        "es": "Verifique el turbocompresor en busca de juego en el eje y fugas de aceite."
+      },
+      {
+        "en": "Low boost pressure may indicate a leaking charge air circuit.",
+        "es": "Una presión de soplado baja puede indicar una fuga en el circuito de aire de carga."
+      }
+    ]
+  },
+  {
+    "id": "en-65",
+    "termino": "Wastegate",
+    "traduccion": "Válvula de descarga del turbo",
+    "definicion": "Válvula que desvía gases de escape alrededor de la turbina para limitar la presión de sobrealimentación.",
+    "categoria": "Motor",
+    "ejemplos": [
+      {
+        "en": "Verify the wastegate actuator moves freely when vacuum is applied.",
+        "es": "Verifique que el actuador de la wastegate se mueva libremente al aplicar vacío."
+      },
+      {
+        "en": "A stuck wastegate can cause overboost and a limp mode.",
+        "es": "Una wastegate trabada puede causar sobrepresión y modo de emergencia."
+      }
+    ]
+  },
+  {
+    "id": "en-66",
+    "termino": "Diesel Particulate Filter (DPF)",
+    "traduccion": "Filtro de partículas diésel",
+    "definicion": "Elemento que retiene el hollín del escape y se regenera periódicamente mediante altas temperaturas.",
+    "categoria": "Motor",
+    "ejemplos": [
+      {
+        "en": "A high DPF differential pressure indicates a restricted filter.",
+        "es": "Una presión diferencial alta en el DPF indica un filtro restringido."
+      },
+      {
+        "en": "Start a forced regeneration when the DPF load reaches the threshold.",
+        "es": "Inicie una regeneración forzada cuando la carga del DPF alcance el umbral."
+      }
+    ]
+  },
+  {
+    "id": "en-67",
+    "termino": "Selective Catalytic Reduction (SCR)",
+    "traduccion": "Reducción catalítica selectiva",
+    "definicion": "Sistema que inyecta urea en el escape para transformar los NOx en nitrógeno y agua.",
+    "categoria": "Motor",
+    "ejemplos": [
+      {
+        "en": "Check the SCR system for low DEF level or a faulty NOx sensor.",
+        "es": "Verifique el sistema SCR por nivel bajo de DEF o un sensor NOx defectuoso."
+      },
+      {
+        "en": "The SCR efficiency test must be performed at operating temperature.",
+        "es": "La prueba de eficiencia del SCR debe realizarse a temperatura de servicio."
+      }
+    ]
+  },
+  {
+    "id": "en-68",
+    "termino": "Glow Plug",
+    "traduccion": "Bujía incandescente",
+    "definicion": "Elemento de calentamiento que facilita el arranque en frío de los motores diésel.",
+    "categoria": "Encendido",
+    "ejemplos": [
+      {
+        "en": "Test the glow plug resistance and the control module output.",
+        "es": "Pruebe la resistencia de la bujía incandescente y la salida del módulo de control."
+      },
+      {
+        "en": "A failed glow plug can cause hard starting when cold.",
+        "es": "Una bujía incandescente defectuosa puede causar arranque difícil en frío."
+      }
+    ]
+  },
+  {
+    "id": "en-69",
+    "termino": "Starter Motor",
+    "traduccion": "Motor de arranque",
+    "definicion": "Motor eléctrico con piñón que hace girar el volante del motor hasta que arranca.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Measure the starter motor current draw during cranking.",
+        "es": "Mida el consumo de corriente del motor de arranque durante el arranque."
+      },
+      {
+        "en": "A clicking starter motor may indicate low battery voltage.",
+        "es": "Un motor de arranque que hace clic puede indicar voltaje bajo de batería."
+      }
+    ]
+  },
+  {
+    "id": "en-70",
+    "termino": "Alternator",
+    "traduccion": "Alternador",
+    "definicion": "Generador accionado por el motor que produce electricidad y mantiene cargada la batería con el vehículo en marcha.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Check the alternator output voltage at 2000 rpm.",
+        "es": "Verifique el voltaje de salida del alternador a 2000 rpm."
+      },
+      {
+        "en": "A noisy alternator bearing can be mistaken for an engine noise.",
+        "es": "Un rodamiento ruidoso del alternador puede confundirse con un ruido del motor."
+      }
+    ]
+  },
+  {
+    "id": "en-71",
+    "termino": "Fuel Pump",
+    "traduccion": "Bomba de combustible",
+    "definicion": "Bomba eléctrica que presuriza la línea de combustible antes y durante el funcionamiento del motor.",
+    "categoria": "Actuadores",
+    "ejemplos": [
+      {
+        "en": "Listen for fuel pump operation when the key is turned on.",
+        "es": "Escuche el funcionamiento de la bomba de combustible al girar la llave."
+      },
+      {
+        "en": "Check fuel pump pressure and volume before replacing it.",
+        "es": "Verifique la presión y el caudal de la bomba de combustible antes de reemplazarla."
+      }
+    ]
+  },
+  {
+    "id": "en-72",
+    "termino": "Ignition Switch",
+    "traduccion": "Interruptor de encendido",
+    "definicion": "Conmutador que distribuye alimentación a los circuitos de accesorios, contacto y arranque.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Check for voltage at the ignition switch output in each position.",
+        "es": "Verifique el voltaje en la salida del interruptor de encendido en cada posición."
+      },
+      {
+        "en": "A worn ignition switch can cause intermittent no-crank conditions.",
+        "es": "Un interruptor de encendido desgastado puede causar fallas intermitentes de arranque."
+      }
+    ]
+  },
+  {
+    "id": "en-73",
+    "termino": "Splice",
+    "traduccion": "Empalme",
+    "definicion": "Unión permanente de dos o más conductores dentro de un arnés, generalmente soldada o engastada.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Locate the splice inside the harness before testing the circuit.",
+        "es": "Localice el empalme dentro del arnés antes de probar el circuito."
+      },
+      {
+        "en": "Use heat shrink tubing to seal the splice after repair.",
+        "es": "Use tubo termorretráctil para sellar el empalme después de la reparación."
+      }
+    ]
+  },
+  {
+    "id": "en-74",
+    "termino": "Crimp",
+    "traduccion": "Engaste",
+    "definicion": "Unión mecánica de un terminal a un conductor mediante presión; debe ser firme y sin dañar el aislamiento.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Use the correct crimping tool for the terminal type.",
+        "es": "Use la herramienta de engaste correcta para el tipo de terminal."
+      },
+      {
+        "en": "A poor crimp can cause high resistance and intermittent faults.",
+        "es": "Un engaste deficiente puede causar alta resistencia y fallas intermitentes."
+      }
+    ]
+  },
+  {
+    "id": "en-75",
+    "termino": "Pin Drag",
+    "traduccion": "Pin deformado",
+    "definicion": "Condición en la que un pin del conector está deformado o ensanchado y no hace contacto firme con su terminal.",
+    "categoria": "Diagnóstico",
+    "ejemplos": [
+      {
+        "en": "Inspect the connector for pin drag after a poor connection complaint.",
+        "es": "Inspeccione el conector en busca de pines deformados tras un reporte de mala conexión."
+      },
+      {
+        "en": "Pin drag can cause intermittent communication faults.",
+        "es": "Un pin deformado puede causar fallas intermitentes de comunicación."
+      }
+    ]
+  },
+  {
+    "id": "en-76",
+    "termino": "Terminal Tension",
+    "traduccion": "Tensión del terminal",
+    "definicion": "Fuerza de retención que ejerce un terminal hembra sobre su pin macho; una tensión baja provoca conexiones intermitentes.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Check terminal tension with a mating test pin.",
+        "es": "Verifique la tensión del terminal con un pin de prueba adecuado."
+      },
+      {
+        "en": "Low terminal tension can cause voltage drops under load.",
+        "es": "Una tensión baja del terminal puede causar caídas de tensión con carga."
+      }
+    ]
+  },
+  {
+    "id": "en-77",
+    "termino": "Load Test",
+    "traduccion": "Prueba de carga",
+    "definicion": "Prueba que aplica una carga conocida a un circuito o batería para evaluar su capacidad real de entregar corriente.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Perform a load test on the battery before condemning the alternator.",
+        "es": "Realice una prueba de carga a la batería antes de condenar el alternador."
+      },
+      {
+        "en": "A circuit may show voltage without load and fail under a load test.",
+        "es": "Un circuito puede mostrar voltaje sin carga y fallar en una prueba de carga."
+      }
+    ]
+  },
+  {
+    "id": "en-78",
+    "termino": "Relay Box",
+    "traduccion": "Caja de relés",
+    "definicion": "Compartimento que aloja relés y fusibles de distribución, generalmente ubicado en el vano motor o bajo el tablero.",
+    "categoria": "Eléctrico",
+    "ejemplos": [
+      {
+        "en": "Locate the relay box and identify the fuel pump relay.",
+        "es": "Localice la caja de relés e identifique el relé de la bomba de combustible."
+      },
+      {
+        "en": "Water intrusion in the relay box can cause multiple electrical faults.",
+        "es": "La entrada de agua en la caja de relés puede causar múltiples fallas eléctricas."
+      }
+    ]
+  }
+]

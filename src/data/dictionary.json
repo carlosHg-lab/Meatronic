@@ -364,5 +364,893 @@
     "termino": "Transmisión DSG (Doble Embrague)",
     "definicion": "Transmisión de doble embrague que permite cambios rápidos sin interrumpir la entrega de potencia.",
     "categoria": "Transmisión"
+  },
+  {
+    "id": "62",
+    "termino": "Gateway (Módulo de Pasarela)",
+    "definicion": "Nodo que enlaza distintas redes del vehículo (CAN, LIN, Ethernet) y traduce mensajes entre ellas.",
+    "categoria": "Electrónica"
+  },
+  {
+    "id": "63",
+    "termino": "Módulo de Infoentretenimiento (HMI)",
+    "definicion": "Unidad que gestiona pantalla, audio, navegación y conectividad, e interactúa con otras redes del vehículo.",
+    "categoria": "Electrónica"
+  },
+  {
+    "id": "64",
+    "termino": "BMS (Battery Management System)",
+    "definicion": "Sistema que monitorea celdas, temperatura y estado de carga de la batería de alta tensión en vehículos híbridos y eléctricos.",
+    "categoria": "Electrónica"
+  },
+  {
+    "id": "65",
+    "termino": "EEPROM",
+    "definicion": "Memoria no volátil que conserva adaptaciones, códigos y configuración de los módulos aunque se corte la alimentación.",
+    "categoria": "Electrónica"
+  },
+  {
+    "id": "66",
+    "termino": "Microcontrolador",
+    "definicion": "Circuito integrado con CPU, memoria y periféricos que ejecuta la lógica de control dentro de un módulo.",
+    "categoria": "Electrónica"
+  },
+  {
+    "id": "67",
+    "termino": "MOSFET",
+    "definicion": "Transistor de efecto de campo usado como interruptor rápido para controlar cargas y etapas de potencia.",
+    "categoria": "Electrónica"
+  },
+  {
+    "id": "68",
+    "termino": "Diodo de Rueda Libre",
+    "definicion": "Diodo colocado en paralelo con una carga inductiva para disipar el pico de tensión al apagarse.",
+    "categoria": "Electrónica"
+  },
+  {
+    "id": "69",
+    "termino": "Regulador de Voltaje",
+    "definicion": "Circuito que mantiene estable la tensión de salida frente a cambios de carga o de alimentación.",
+    "categoria": "Electrónica"
+  },
+  {
+    "id": "70",
+    "termino": "Módulo de Control de Chasis (CCM)",
+    "definicion": "Módulo que supervisa funciones de chasis como suspensión, dirección y frenos electrónicos.",
+    "categoria": "Electrónica"
+  },
+  {
+    "id": "71",
+    "termino": "Solenoide de Cambio",
+    "definicion": "Electroválvula que dirige el flujo hidráulico para engranar o liberar cada relación de la transmisión automática.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "72",
+    "termino": "Sensor de Velocidad de Entrada (ISS)",
+    "definicion": "Sensor que mide la velocidad de la turbina o del eje de entrada para calcular deslizamiento y presiones.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "73",
+    "termino": "Sensor de Velocidad de Salida (OSS)",
+    "definicion": "Sensor que mide la velocidad del eje de salida y permite calcular la relación engranada y la velocidad del vehículo.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "74",
+    "termino": "Cuerpo de Válvulas",
+    "definicion": "Bloque hidráulico con válvulas y solenoides que distribuye presión y aceite a los embragues internos.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "75",
+    "termino": "Presión de Línea",
+    "definicion": "Presión hidráulica principal generada por la bomba y regulada para accionar embragues y frenos internos.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "76",
+    "termino": "Transmisión Automática (AT)",
+    "definicion": "Caja que selecciona las relaciones mediante embragues hidráulicos y control electrónico, sin intervención del conductor.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "77",
+    "termino": "Transmisión Manual (MT)",
+    "definicion": "Caja en la que el conductor selecciona la marcha mediante una palanca y un embrague mecánico.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "78",
+    "termino": "Embrague",
+    "definicion": "Acoplamiento por fricción que conecta y desconecta el motor de la caja manual.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "79",
+    "termino": "Bloqueo del Convertidor (TCC)",
+    "definicion": "Embrague interno que une la turbina con la carcasa del convertidor para eliminar deslizamiento y mejorar consumo.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "80",
+    "termino": "Modo Tiptronic",
+    "definicion": "Función que permite seleccionar marchas de forma manual sobre una transmisión automática.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "81",
+    "termino": "Doble Embrague Húmedo",
+    "definicion": "Sistema con dos embragues bañados en aceite que preselecciona la marcha siguiente para cambios rápidos.",
+    "categoria": "Transmisión"
+  },
+  {
+    "id": "82",
+    "termino": "CAN High / CAN Low",
+    "definicion": "Par de líneas diferenciales del bus CAN; CAN High y CAN Low transportan la señal complementaria que define los bits.",
+    "categoria": "Comunicación"
+  },
+  {
+    "id": "83",
+    "termino": "CAN FD (Flexible Data Rate)",
+    "definicion": "Evolución del CAN con mayor velocidad de datos y tramas de hasta 64 bytes para diagnósticos y programación.",
+    "categoria": "Comunicación"
+  },
+  {
+    "id": "84",
+    "termino": "Resistencia de Terminación 120 Ω",
+    "definicion": "Resistencia en los extremos del bus CAN que evita reflexiones y mantiene la impedancia de la línea.",
+    "categoria": "Comunicación"
+  },
+  {
+    "id": "85",
+    "termino": "Nodo de Red",
+    "definicion": "Cada módulo conectado a una red de comunicación que transmite y recibe mensajes identificados.",
+    "categoria": "Comunicación"
+  },
+  {
+    "id": "86",
+    "termino": "Ethernet Automotriz (DoIP)",
+    "definicion": "Red Ethernet de alta velocidad usada para diagnóstico, cámaras y actualizaciones de software (Diagnostics over IP).",
+    "categoria": "Comunicación"
+  },
+  {
+    "id": "87",
+    "termino": "Protocolo KWP2000",
+    "definicion": "Protocolo de diagnóstico serie previo a UDS, usado en vehículos de finales de los 90 y principios de los 2000.",
+    "categoria": "Comunicación"
+  },
+  {
+    "id": "88",
+    "termino": "Trama CAN (CAN Frame)",
+    "definicion": "Estructura de datos del bus CAN compuesta por identificador, longitud, datos y verificación CRC.",
+    "categoria": "Comunicación"
+  },
+  {
+    "id": "89",
+    "termino": "Identificador de Mensaje CAN",
+    "definicion": "Valor que define el contenido y la prioridad de una trama CAN; también se conoce como CAN ID.",
+    "categoria": "Comunicación"
+  },
+  {
+    "id": "90",
+    "termino": "Escáner Automotriz",
+    "definicion": "Herramienta que se conecta al puerto OBD-II para leer códigos, datos en vivo y ejecutar pruebas.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "91",
+    "termino": "Datos en Vivo (Live Data)",
+    "definicion": "Lecturas actualizadas en tiempo real de sensores y parámetros del motor mostradas por el escáner.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "92",
+    "termino": "Código Pendiente / Permanente",
+    "definicion": "Estado del DTC que indica si la falla aún no se confirma o si permanece hasta completar ciclos de prueba.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "93",
+    "termino": "Prueba Activa de Actuadores",
+    "definicion": "Función del escáner que ordena a la ECU accionar solenoides, relés o ventiladores para verificar su funcionamiento.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "94",
+    "termino": "Adaptación / Aprendizaje",
+    "definicion": "Ajustes que el módulo guarda según el desgaste y el comportamiento real para corregir sus estrategias.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "95",
+    "termino": "Programación / Flasheo",
+    "definicion": "Proceso de escribir nuevo software o calibración en la memoria de un módulo de control.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "96",
+    "termino": "Prueba de Caída de Tensión",
+    "definicion": "Medición de la diferencia de voltaje en un circuito con carga para detectar resistencias indeseadas.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "97",
+    "termino": "Prueba de Humo (Smoke Test)",
+    "definicion": "Técnica que introduce humo a presión para localizar fugas en admisión, escape o EVAP.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "98",
+    "termino": "Prueba de Compresión",
+    "definicion": "Medición de la presión máxima en cada cilindro para evaluar sellado de válvulas, aros y junta de culata.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "99",
+    "termino": "Osciloscopio Automotriz",
+    "definicion": "Instrumento que grafica voltaje en función del tiempo para analizar señales de sensores y actuadores.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "100",
+    "termino": "P0171 / P0172 (Mezcla Pobre / Rica)",
+    "definicion": "Códigos que indican corrección de combustible fuera de rango: P0171 por mezcla pobre y P0172 por mezcla rica.",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "101",
+    "termino": "KOEO / KOER",
+    "definicion": "Condiciones de prueba con el contacto encendido y el motor apagado (KOEO) o en marcha (KOER).",
+    "categoria": "Diagnóstico"
+  },
+  {
+    "id": "102",
+    "termino": "Sensor de Temperatura Ambiente (AAT)",
+    "definicion": "Termistor que mide la temperatura exterior para climatización y cálculo de densidad de aire.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "103",
+    "termino": "Sensor de Presión de Turbo (Boost)",
+    "definicion": "Sensor que mide la presión de sobrealimentación para regular la válvula de descarga y proteger el motor.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "104",
+    "termino": "Sensor de Nivel de Combustible",
+    "definicion": "Flotador o sensor de resistencia que informa el volumen de combustible disponible en el tanque.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "105",
+    "termino": "Sensor de Ángulo de Dirección (SAS)",
+    "definicion": "Sensor óptico o magnético que mide la rotación del volante para ESP, EPS y asistencias de conducción.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "106",
+    "termino": "Sensor de Guiñada y Aceleración (Yaw/G)",
+    "definicion": "Sensor inercial que mide la rotación del vehículo y las aceleraciones lateral y longitudinal para el control de estabilidad.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "107",
+    "termino": "Sensor de Presión de Freno",
+    "definicion": "Sensor que informa la presión hidráulica del circuito de frenos para ABS, ESP y frenado regenerativo.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "108",
+    "termino": "Sensor de Posición de Embrague",
+    "definicion": "Sensor que detecta si el pedal del embrague está pisado para habilitar el arranque y coordinar el par.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "109",
+    "termino": "Sonda Lambda de Banda Ancha (Wideband)",
+    "definicion": "Sonda de oxígeno que mide mezclas ricas y pobres con alta precisión, usada en control de mezcla y diagnóstico.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "110",
+    "termino": "Sensor de Temperatura de Aceite",
+    "definicion": "Sensor que mide la temperatura del aceite para ajustar intervalos de servicio y estrategias de protección.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "111",
+    "termino": "Sensor de Presión de Aceite",
+    "definicion": "Sensor que monitorea la presión del circuito de lubricación y alerta ante una caída peligrosa.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "112",
+    "termino": "Sensor de Lluvia",
+    "definicion": "Sensor óptico en el parabrisas que detecta humedad y activa automáticamente el limpiaparabrisas.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "113",
+    "termino": "Sensor de Luz Solar",
+    "definicion": "Sensor que mide la radiación solar para que el climatizador ajuste la temperatura por zonas.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "114",
+    "termino": "Sensor de Posición de Válvula EGR",
+    "definicion": "Potenciómetro o sensor de efecto Hall que informa la apertura real de la válvula EGR.",
+    "categoria": "Sensores"
+  },
+  {
+    "id": "115",
+    "termino": "Solenoide de Purga EVAP",
+    "definicion": "Electroválvula que permite el paso de vapores del tanque al colector de admisión en momentos controlados.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "116",
+    "termino": "Motor Paso a Paso",
+    "definicion": "Actuador que avanza en incrementos angulares precisos, usado en ralentí, mariposas y compuertas de climatización.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "117",
+    "termino": "Bomba de Combustible Eléctrica",
+    "definicion": "Bomba sumergida o externa que presuriza la línea de combustible antes y durante el funcionamiento del motor.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "118",
+    "termino": "Ventilador de Refrigeración",
+    "definicion": "Electroventilador controlado por la ECU o el módulo de carrocería para mantener la temperatura del refrigerante.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "119",
+    "termino": "Compresor de A/C",
+    "definicion": "Compresor accionado por correa o eléctricamente que bombea refrigerante en el circuito de climatización.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "120",
+    "termino": "Actuador de Freno de Estacionamiento (EPB)",
+    "definicion": "Motor eléctrico en las pinzas traseras que aplica y libera el freno de estacionamiento sin palanca mecánica.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "121",
+    "termino": "Motor de Asiento Eléctrico",
+    "definicion": "Motorreductor que mueve el asiento en varias direcciones mediante interruptores y memorias.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "122",
+    "termino": "Solenoide de Bloqueo de Dirección",
+    "definicion": "Actuador que libera la columna de dirección al reconocer la llave o el transponder.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "123",
+    "termino": "Motor de Techo Solar",
+    "definicion": "Motorreductor que desliza o inclina el panel del techo solar y controla su posición final.",
+    "categoria": "Actuadores"
+  },
+  {
+    "id": "124",
+    "termino": "Fusible",
+    "definicion": "Elemento de protección que se funde y abre el circuito cuando la corriente supera su valor nominal.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "125",
+    "termino": "Fusible de Enlace",
+    "definicion": "Fusible de alta corriente instalado en el cable principal de alimentación para proteger todo un circuito.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "126",
+    "termino": "Cortacircuitos",
+    "definicion": "Dispositivo rearmable que interrumpe la corriente ante sobrecarga o cortocircuito.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "127",
+    "termino": "Masa / Tierra",
+    "definicion": "Conexión de retorno al chasis o al borne negativo que sirve como referencia de 0 V.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "128",
+    "termino": "Cortocircuito a Masa",
+    "definicion": "Falla en la que un conductor positivo hace contacto con la masa, provocando exceso de corriente o fusible quemado.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "129",
+    "termino": "Cortocircuito a Positivo",
+    "definicion": "Falla en la que un conductor de señal o de masa entra en contacto con alimentación positiva.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "130",
+    "termino": "Circuito Abierto",
+    "definicion": "Interrupción del conductor o conexión que impide el paso de corriente.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "131",
+    "termino": "Caída de Tensión",
+    "definicion": "Diferencia de voltaje medida entre dos puntos de un circuito con carga; revela resistencias parásitas.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "132",
+    "termino": "Resistencia Pull-Up",
+    "definicion": "Resistencia que mantiene una línea de señal en un nivel alto hasta que el sensor o interruptor la lleva a masa.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "133",
+    "termino": "Cable Trenzado",
+    "definicion": "Par de conductores entrelazados que reduce interferencias electromagnéticas en señales diferenciales.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "134",
+    "termino": "Cable Apantallado",
+    "definicion": "Conductor rodeado por una malla o lámina conectada a masa para proteger señales sensibles de ruido.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "135",
+    "termino": "Calibre de Cable (AWG)",
+    "definicion": "Medida normalizada del diámetro del conductor que determina su capacidad de corriente y resistencia.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "136",
+    "termino": "Terminal / Conector",
+    "definicion": "Contacto metálico y carcasa que unen cables de forma desmontable con un componente o módulo.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "137",
+    "termino": "Empalme (Splice)",
+    "definicion": "Unión permanente de dos o más conductores dentro de un arnés, generalmente soldada o engastada.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "138",
+    "termino": "Motor de Arranque",
+    "definicion": "Motor eléctrico con piñón que hace girar el volante del motor hasta que arranca.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "139",
+    "termino": "Batería de Litio",
+    "definicion": "Acumulador de iones de litio con alta densidad energética, usado en vehículos eléctricos e híbridos.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "140",
+    "termino": "Convertidor DC-DC",
+    "definicion": "Convertidor que adapta el voltaje de la batería de alta tensión a 12 V para los sistemas convencionales.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "141",
+    "termino": "Sistema de 48 V",
+    "definicion": "Arquitectura de tensión moderada para hibridación ligera, arranque-generador y cargas de alta potencia.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "142",
+    "termino": "Consumo Parásito",
+    "definicion": "Corriente que sigue fluyendo con el vehículo apagado y que puede descargar la batería.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "143",
+    "termino": "Alternador Inteligente",
+    "definicion": "Alternador cuyo regulador es controlado por la ECU para gestionar la carga según la demanda y el ahorro de combustible.",
+    "categoria": "Eléctrico"
+  },
+  {
+    "id": "144",
+    "termino": "Módulo SRS (Airbag)",
+    "definicion": "Unidad que controla airbags y pretensores a partir de sensores de impacto y de ocupación.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "145",
+    "termino": "Pretensor de Cinturón",
+    "definicion": "Dispositivo pirotécnico que tensa el cinturón en una colisión para reducir el movimiento del ocupante.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "146",
+    "termino": "Sensor de Impacto",
+    "definicion": "Acelerómetro que detecta desaceleraciones bruscas y ordena el despliegue de los sistemas de retención.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "147",
+    "termino": "Frenado Autónomo de Emergencia (AEB)",
+    "definicion": "Sistema que detecta riesgo de colisión y aplica los frenos sin intervención del conductor.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "148",
+    "termino": "Asistencia de Mantenimiento de Carril (LKA)",
+    "definicion": "Sistema que corrige la dirección para mantener el vehículo dentro de su carril.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "149",
+    "termino": "Detección de Punto Ciego (BSD)",
+    "definicion": "Sensores de radar o ultrasonido que alertan la presencia de vehículos en los ángulos muertos.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "150",
+    "termino": "Cámara de Reversa",
+    "definicion": "Cámara que muestra la parte trasera del vehículo en la pantalla al engranar la reversa.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "151",
+    "termino": "Control de Descenso (HDC)",
+    "definicion": "Sistema que limita la velocidad en descensos pronunciados aplicando los frenos de forma controlada.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "152",
+    "termino": "Freno de Estacionamiento Eléctrico (EPB)",
+    "definicion": "Freno de estacionamiento accionado por motor eléctrico y controlado por un interruptor o automáticamente.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "153",
+    "termino": "Dirección Asistida Eléctrica (EPS)",
+    "definicion": "Dirección asistida por un motor eléctrico que ajusta la fuerza según velocidad y ángulo de giro.",
+    "categoria": "Seguridad"
+  },
+  {
+    "id": "154",
+    "termino": "Cilindro",
+    "definicion": "Cámara donde se mueve el pistón y ocurre la combustión; su número y disposición definen la arquitectura del motor.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "155",
+    "termino": "Relación de Compresión",
+    "definicion": "Cociente entre el volumen máximo y mínimo del cilindro; influye en potencia, eficiencia y tipo de combustible.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "156",
+    "termino": "Árbol de Levas",
+    "definicion": "Eje con levas que abre y cierra las válvulas de admisión y escape en sincronía con el cigüeñal.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "157",
+    "termino": "Cigüeñal",
+    "definicion": "Eje que convierte el movimiento alternativo de los pistones en rotación y entrega el par al tren motriz.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "158",
+    "termino": "Válvula de Admisión / Escape",
+    "definicion": "Compuertas que permiten la entrada de mezcla y la salida de gases en cada ciclo del cilindro.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "159",
+    "termino": "Biela",
+    "definicion": "Elemento que une el pistón con el cigüeñal y transmite la fuerza de la combustión.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "160",
+    "termino": "Pistón",
+    "definicion": "Émbolo que se desplaza en el cilindro y recibe la presión de los gases de combustión.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "161",
+    "termino": "Junta de Culata",
+    "definicion": "Sello entre bloque y culata que contiene la compresión y separa los circuitos de refrigerante y aceite.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "162",
+    "termino": "Bomba de Aceite",
+    "definicion": "Bomba que presuriza el aceite para lubricar cojinetes, árboles y componentes móviles.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "163",
+    "termino": "Bomba de Agua",
+    "definicion": "Bomba centrífuga que hace circular el refrigerante por el motor y el radiador.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "164",
+    "termino": "Termostato",
+    "definicion": "Válvula que regula el paso de refrigerante para mantener la temperatura de servicio del motor.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "165",
+    "termino": "Radiador",
+    "definicion": "Intercambiador que disipa el calor del refrigerante hacia el aire exterior.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "166",
+    "termino": "Intercooler",
+    "definicion": "Intercambiador que enfría el aire comprimido por el turbo antes de ingresar al motor, aumentando su densidad.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "167",
+    "termino": "Wastegate",
+    "definicion": "Válvula que desvía gases de escape alrededor de la turbina para limitar la presión de sobrealimentación.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "168",
+    "termino": "Volante Bimasa",
+    "definicion": "Volante con masa y resortes que absorbe las vibraciones del cigüeñal y suaviza el acople con la transmisión.",
+    "categoria": "Motor"
+  },
+  {
+    "id": "169",
+    "termino": "Bujía",
+    "definicion": "Elemento que produce la chispa para iniciar la combustión en motores de gasolina.",
+    "categoria": "Encendido"
+  },
+  {
+    "id": "170",
+    "termino": "Bujía de Iridio",
+    "definicion": "Bujía con electrodo de iridio que resiste altas temperaturas y ofrece mayor duración.",
+    "categoria": "Encendido"
+  },
+  {
+    "id": "171",
+    "termino": "Bobina COP (Coil-on-Plug)",
+    "definicion": "Bobina individual montada directamente sobre cada bujía, sin cables de alta tensión.",
+    "categoria": "Encendido"
+  },
+  {
+    "id": "172",
+    "termino": "Distribuidor",
+    "definicion": "Mecanismo antiguo que reparte la alta tensión a cada bujía en el orden de encendido.",
+    "categoria": "Encendido"
+  },
+  {
+    "id": "173",
+    "termino": "Cables de Bujía",
+    "definicion": "Conductores de alta tensión que llevan la chispa desde la bobina o el distribuidor a las bujías.",
+    "categoria": "Encendido"
+  },
+  {
+    "id": "174",
+    "termino": "Módulo de Encendido (ICM)",
+    "definicion": "Módulo que controla la corriente de la bobina y genera el pulso de encendido.",
+    "categoria": "Encendido"
+  },
+  {
+    "id": "175",
+    "termino": "Avance de Encendido",
+    "definicion": "Adelanto del momento de la chispa respecto al PMS para optimizar potencia y emisiones.",
+    "categoria": "Encendido"
+  },
+  {
+    "id": "176",
+    "termino": "Orden de Encendido",
+    "definicion": "Secuencia en que se encienden los cilindros, definida por el diseño del motor y el cigüeñal.",
+    "categoria": "Encendido"
+  },
+  {
+    "id": "177",
+    "termino": "Encendido Sin Distribuidor (DIS)",
+    "definicion": "Sistema que elimina el distribuidor y usa bobinas o módulos para disparar la chispa directamente.",
+    "categoria": "Encendido"
+  },
+  {
+    "id": "178",
+    "termino": "Inyector",
+    "definicion": "Electroválvula que pulveriza combustible en la admisión o directamente en el cilindro.",
+    "categoria": "Inyección"
+  },
+  {
+    "id": "179",
+    "termino": "Riel de Combustible",
+    "definicion": "Conducto que distribuye combustible a presión uniforme hacia todos los inyectores.",
+    "categoria": "Inyección"
+  },
+  {
+    "id": "180",
+    "termino": "Bomba de Alta Presión",
+    "definicion": "Bomba que eleva la presión del combustible para inyección directa o Common Rail.",
+    "categoria": "Inyección"
+  },
+  {
+    "id": "181",
+    "termino": "Regulador de Presión de Combustible",
+    "definicion": "Válvula que mantiene la presión de combustible dentro del valor requerido por el sistema.",
+    "categoria": "Inyección"
+  },
+  {
+    "id": "182",
+    "termino": "Inyección Directa (GDI)",
+    "definicion": "Sistema que inyecta combustible directamente en la cámara de combustión a alta presión.",
+    "categoria": "Inyección"
+  },
+  {
+    "id": "183",
+    "termino": "Inyección Indirecta (PFI)",
+    "definicion": "Sistema que inyecta combustible en el colector de admisión antes de la válvula.",
+    "categoria": "Inyección"
+  },
+  {
+    "id": "184",
+    "termino": "Inyección Secuencial",
+    "definicion": "Estrategia que acciona cada inyector en el momento exacto del ciclo de su cilindro.",
+    "categoria": "Inyección"
+  },
+  {
+    "id": "185",
+    "termino": "Corte de Inyección (DFCO)",
+    "definicion": "Estrategia que suspende la inyección durante desaceleraciones para ahorrar combustible y reducir emisiones.",
+    "categoria": "Inyección"
+  },
+  {
+    "id": "186",
+    "termino": "Pulso de Inyección",
+    "definicion": "Señal eléctrica que mantiene abierto el inyector durante un tiempo determinado.",
+    "categoria": "Inyección"
+  },
+  {
+    "id": "187",
+    "termino": "Tiempo de Apertura del Inyector",
+    "definicion": "Duración del pulso que define la cantidad de combustible entregada por el inyector.",
+    "categoria": "Inyección"
+  },
+  {
+    "id": "188",
+    "termino": "Red de Carrocería",
+    "definicion": "Conjunto de módulos y buses que controlan luces, seguros, elevalunas, climatización y confort.",
+    "categoria": "Carrocería"
+  },
+  {
+    "id": "189",
+    "termino": "Elevalunas Eléctrico",
+    "definicion": "Motor y mecanismo que suben y bajan el cristal de la puerta mediante un interruptor.",
+    "categoria": "Carrocería"
+  },
+  {
+    "id": "190",
+    "termino": "Cierre Centralizado",
+    "definicion": "Sistema que bloquea o desbloquea todas las puertas y el portón desde un mando o interruptor.",
+    "categoria": "Carrocería"
+  },
+  {
+    "id": "191",
+    "termino": "Espejo Eléctrico",
+    "definicion": "Espejo con motores que ajustan su posición y, en algunos casos, lo abaten automáticamente.",
+    "categoria": "Carrocería"
+  },
+  {
+    "id": "192",
+    "termino": "Limpiaparabrisas",
+    "definicion": "Sistema de motor y brazos que limpian el parabrisas, con velocidades e intermitencia controladas.",
+    "categoria": "Carrocería"
+  },
+  {
+    "id": "193",
+    "termino": "Iluminación Interior",
+    "definicion": "Luces del habitáculo controladas por el módulo de carrocería, con atenuación y temporización.",
+    "categoria": "Carrocería"
+  },
+  {
+    "id": "194",
+    "termino": "Luz de Freno",
+    "definicion": "Luz trasera que se enciende al accionar el pedal de freno para advertir a los demás conductores.",
+    "categoria": "Carrocería"
+  },
+  {
+    "id": "195",
+    "termino": "Climatización (HVAC)",
+    "definicion": "Sistema de calefacción, ventilación y aire acondicionado que regula temperatura y flujo en el habitáculo.",
+    "categoria": "Carrocería"
+  },
+  {
+    "id": "196",
+    "termino": "Panel de Instrumentos (Cluster)",
+    "definicion": "Conjunto de indicadores y testigos que muestra velocidad, RPM, temperatura, combustible y advertencias.",
+    "categoria": "Carrocería"
+  },
+  {
+    "id": "197",
+    "termino": "Techo Solar Eléctrico",
+    "definicion": "Panel móvil con motor que se desliza o inclina para ventilar e iluminar el habitáculo.",
+    "categoria": "Carrocería"
+  },
+  {
+    "id": "198",
+    "termino": "Módulo de Control de Puerta (DCM)",
+    "definicion": "Módulo que gestiona elevalunas, espejo, seguro y luces de una puerta, comunicándose por la red de carrocería.",
+    "categoria": "Carrocería"
+  },
+  {
+    "id": "199",
+    "termino": "Tren Motriz (Powertrain)",
+    "definicion": "Conjunto formado por motor, transmisión, ejes y diferencial que entrega potencia a las ruedas.",
+    "categoria": "Tren motriz"
+  },
+  {
+    "id": "200",
+    "termino": "Diferencial",
+    "definicion": "Mecanismo que distribuye el par entre las ruedas y permite que giren a velocidades distintas en curvas.",
+    "categoria": "Tren motriz"
+  },
+  {
+    "id": "201",
+    "termino": "Eje de Transmisión (Driveshaft)",
+    "definicion": "Eje que transmite el par desde la caja o la caja de transferencia hasta el diferencial.",
+    "categoria": "Tren motriz"
+  },
+  {
+    "id": "202",
+    "termino": "Junta Homocinética (CV Joint)",
+    "definicion": "Articulación que transmite el par a la rueda permitiendo giros y movimientos de suspensión.",
+    "categoria": "Tren motriz"
+  },
+  {
+    "id": "203",
+    "termino": "Semieje",
+    "definicion": "Eje lateral que conecta la transmisión o diferencial con la rueda.",
+    "categoria": "Tren motriz"
+  },
+  {
+    "id": "204",
+    "termino": "Caja de Transferencia",
+    "definicion": "Mecanismo que reparte el par entre los ejes delantero y trasero en vehículos 4x4/AWD.",
+    "categoria": "Tren motriz"
+  },
+  {
+    "id": "205",
+    "termino": "Tracción AWD / 4x4",
+    "definicion": "Sistema que entrega potencia a las cuatro ruedas para mejorar tracción y estabilidad.",
+    "categoria": "Tren motriz"
+  },
+  {
+    "id": "206",
+    "termino": "Bloqueo de Diferencial",
+    "definicion": "Mecanismo que bloquea el diferencial para que ambas ruedas giren solidariamente en baja tracción.",
+    "categoria": "Tren motriz"
+  },
+  {
+    "id": "207",
+    "termino": "Relación Final",
+    "definicion": "Relación entre el piñón y la corona del diferencial que determina la velocidad y el par finales.",
+    "categoria": "Tren motriz"
+  },
+  {
+    "id": "208",
+    "termino": "Palier",
+    "definicion": "Nombre habitual del semieje que une la transmisión con la rueda en vehículos de tracción delantera.",
+    "categoria": "Tren motriz"
+  },
+  {
+    "id": "209",
+    "termino": "Volante de Inercia",
+    "definicion": "Disco que almacena energía y estabiliza el giro del cigüeñal, acoplándose al embrague.",
+    "categoria": "Tren motriz"
   }
 ]
