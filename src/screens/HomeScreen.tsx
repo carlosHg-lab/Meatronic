@@ -9,6 +9,7 @@ import {
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
 import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { BottomTabsParamList } from '../navigation/BottomTabs';
 import { ThemeToggle } from '../components/ThemeToggle';
 import { useTheme, useThemedStyles } from '../theme/ThemeContext';
@@ -24,9 +25,9 @@ type Card = {
 
 const CARDS: Card[] = [
   { label: 'Manuales', screen: 'Manuales', icon: 'book-open-page-variant' },
-  { label: 'Diagramas', screen: 'Diagramas', icon: 'image' },
+  { label: 'Diagramas', screen: 'Diagramas', icon: 'sitemap' },
   { label: 'Diccionario', screen: 'Diccionario', icon: 'book-alphabet' },
-  { label: 'Calculadora', screen: 'Calculadora', icon: 'calculator' },
+  { label: 'Calculadora', screen: 'Calculadora', icon: 'calculator-variant' },
 ];
 
 const TOP_IMAGE: ImageSourcePropType = require('../../assets/Imagen1.jpg');
@@ -46,6 +47,7 @@ const SLIDER_IMAGES: ImageSourcePropType[] = [
 
 export function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const styles = useThemedStyles(createHomeStyles);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -53,23 +55,28 @@ export function HomeScreen() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((prevIndex) => (prevIndex + 1) % SLIDER_IMAGES.length);
-    }, 2000);
+    }, 2500);
 
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top + 10 }]}>
+      {/* Cabecera superior */}
       <View style={styles.topRow}>
-        <Text style={styles.topKicker}>Panel técnico</Text>
+        <View style={styles.kickerBadge}>
+          <View style={styles.kickerDot} />
+          <Text style={styles.topKicker}>Panel técnico</Text>
+        </View>
         <ThemeToggle />
       </View>
 
+      {/* Banner superior */}
       <View style={styles.topImageContainer}>
         <Image
           source={TOP_IMAGE}
           style={styles.topImage}
-          resizeMode="contain"
+          resizeMode="cover"
         />
       </View>
 
@@ -77,24 +84,34 @@ export function HomeScreen() {
         Manuales, diagramas, diccionario y cálculos
       </Text>
 
+      {/* 4 Botones centrales con borde azul */}
       <View style={styles.grid}>
         {CARDS.map((card) => (
           <TouchableOpacity
             key={card.label}
             style={styles.card}
-            activeOpacity={0.75}
+            activeOpacity={0.78}
             onPress={() => navigation.navigate(card.screen)}
           >
-            <MaterialCommunityIcons
-              name={card.icon}
-              size={34}
-              color={colors.accent}
-            />
+            <View style={styles.cardIconBadge}>
+              <MaterialCommunityIcons
+                name={card.icon}
+                size={26}
+                color={colors.accent}
+              />
+            </View>
             <Text style={styles.cardLabel}>{card.label}</Text>
           </TouchableOpacity>
         ))}
       </View>
 
+      {/* Título intermedio: Novedades y Eventos */}
+      <View style={styles.sectionHeader}>
+        <View style={styles.sectionAccentBar} />
+        <Text style={styles.sectionTitle}>Novedades y Eventos</Text>
+      </View>
+
+      {/* Carrusel ocupando todo el espacio inferior restante */}
       <View style={styles.carouselSection}>
         <View style={styles.carouselContainer}>
           <Image
@@ -102,17 +119,18 @@ export function HomeScreen() {
             style={styles.carouselImage}
             resizeMode="cover"
           />
-        </View>
-        <View style={styles.dotsContainer}>
-          {SLIDER_IMAGES.map((_, index) => (
-            <View
-              key={index}
-              style={[
-                styles.dot,
-                index === activeSlide && styles.activeDot,
-              ]}
-            />
-          ))}
+          {/* Indicadores superpuestos abajo para no robar espacio */}
+          <View style={styles.dotsOverlay}>
+            {SLIDER_IMAGES.map((_, index) => (
+              <View
+                key={index}
+                style={[
+                  styles.dot,
+                  index === activeSlide && styles.activeDot,
+                ]}
+              />
+            ))}
+          </View>
         </View>
       </View>
     </View>

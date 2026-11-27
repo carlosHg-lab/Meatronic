@@ -115,45 +115,36 @@ export const createDiagramasStyles = (colors: ThemeColors) =>
       paddingHorizontal: 20,
       paddingBottom: 8,
     },
-    grid: {
+    list: {
       flex: 1,
     },
-    gridContent: {
+    listContent: {
       paddingHorizontal: 20,
       paddingBottom: 28,
-      gap: 12,
+      gap: 8,
     },
-    card: {
-      flex: 1,
-      minHeight: 152,
-      padding: 16,
+    row: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 14,
+      padding: 14,
       borderRadius: 6,
       backgroundColor: colors.surface,
       borderWidth: 1,
       borderColor: colors.border,
-      justifyContent: 'space-between',
     },
-    cardIcon: {
-      width: 46,
-      height: 46,
-      borderRadius: 4,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: colors.accentSoft,
-      borderWidth: 1,
-      borderColor: colors.accentSoftBorder,
+    rowText: {
+      flex: 1,
     },
-    cardTitle: {
+    rowTitle: {
       color: colors.text,
-      fontSize: 14,
-      fontWeight: '700',
-      lineHeight: 19,
-      marginTop: 14,
+      fontSize: 15,
+      fontWeight: '600',
     },
-    cardMeta: {
+    rowMeta: {
       color: colors.textMuted,
-      fontSize: 11,
-      marginTop: 6,
+      fontSize: 12,
+      marginTop: 3,
       fontVariant: ['tabular-nums'],
     },
     emptyState: {
@@ -182,5 +173,43 @@ export const createDiagramasStyles = (colors: ThemeColors) =>
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    resultsRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingHorizontal: 20,
+      paddingVertical: 12,
+      backgroundColor: colors.surface,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border,
+    },
+    resultsText: {
+      color: colors.textMuted,
+      fontSize: 13,
+    },
+    resultsHighlight: {
+      color: colors.text,
+      fontWeight: '700',
+    },
+    clearText: {
+      color: colors.accent,
+      fontSize: 13,
+      fontWeight: '600',
+    },
+    emptyResetButton: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 7,
+      marginTop: 14,
+      paddingHorizontal: 16,
+      paddingVertical: 10,
+      borderRadius: 6,
+      backgroundColor: colors.accent,
+    },
+    emptyResetText: {
+      color: colors.accentText,
+      fontSize: 13,
+      fontWeight: '600',
     },
   });

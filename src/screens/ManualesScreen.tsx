@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -13,6 +13,9 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { usePdfLibrary } from '../hooks/usePdfLibrary';
 import { formatBytes } from '../utils/formatBytes';
+import { BrandLogo } from '../components/BrandLogo';
+import { BrandFilter, type BrandFilterValue } from '../components/BrandFilter';
+import { getBrandLabel } from '../constants/carBrands';
 import { ThemeToggle } from '../components/ThemeToggle';
 import { useTheme, useThemedStyles } from '../theme/ThemeContext';
 import { createManualesStyles } from '../theme/manualesStyles';
@@ -30,6 +33,7 @@ function ManualRow({
 }) {
   const { colors } = useTheme();
   const styles = useThemedStyles(createManualesStyles);
+  const brandLabel = getBrandLabel(document.brand);
 
   return (
     <TouchableOpacity
@@ -37,18 +41,13 @@ function ManualRow({
       activeOpacity={0.75}
       onPress={onPress}
     >
-      <View style={styles.rowIcon}>
-        <MaterialCommunityIcons
-          name="file-pdf-box"
-          size={26}
-          color={colors.accent}
-        />
-      </View>
+      <BrandLogo brand={document.brand} size={44} />
       <View style={styles.rowText}>
         <Text style={styles.rowTitle} numberOfLines={2}>
           {document.title}
         </Text>
         <Text style={styles.rowMeta}>
+          {brandLabel ? `${brandLabel} · ` : ''}
           {document.size === 0 ? 'Incluido' : formatBytes(document.size)} ·
           Manual
         </Text>
@@ -67,6 +66,7 @@ export function ManualesScreen() {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const styles = useThemedStyles(createManualesStyles);
+  const [selectedBrand, setSelectedBrand] = useState<BrandFilterValue>(null);
   const {
     documents,
     isExternal,
@@ -79,18 +79,28 @@ export function ManualesScreen() {
     importPdfs,
   } = usePdfLibrary('manuales');
 
+  const filteredDocuments = useMemo(() => {
+    if (selectedBrand === null) return documents;
+    if (selectedBrand === 'other') {
+      return documents.filter((doc) => !doc.brand);
+    }
+    return documents.filter((doc) => doc.brand === selectedBrand);
+  }, [documents, selectedBrand]);
+
   const openDocument = useCallback(
     (index: number) => {
+      const target = filteredDocuments[index];
+      const realIndex = documents.findIndex((item) => item.id === target.id);
       navigation.navigate('PdfViewer', {
-        title: documents[index].title,
-        initialIndex: index,
+        title: target.title,
+        initialIndex: realIndex >= 0 ? realIndex : 0,
         documents: documents.map((item) => ({
           uri: item.uri,
           title: item.title,
         })),
       });
     },
-    [documents, navigation]
+    [documents, filteredDocuments, navigation]
   );
 
   const handleImport = useCallback(async () => {
@@ -127,6 +137,34 @@ export function ManualesScreen() {
       );
     }
 
+    if (selectedBrand !== null) {
+      return (
+        <View style={styles.emptyState}>
+          <MaterialCommunityIcons
+            name="filter-variant"
+            size={54}
+            color={colors.accent}
+          />
+          <Text style={styles.emptyTitle}>Sin resultados para esta marca</Text>
+          <Text style={styles.emptyText}>
+            No hay manuales disponibles para el filtro seleccionado.
+          </Text>
+          <TouchableOpacity
+            style={styles.emptyResetButton}
+            activeOpacity={0.8}
+            onPress={() => setSelectedBrand(null)}
+          >
+            <MaterialCommunityIcons
+              name="refresh"
+              size={16}
+              color={colors.accentText}
+            />
+            <Text style={styles.emptyResetText}>Mostrar todos</Text>
+          </TouchableOpacity>
+        </View>
+      );
+    }
+
     return (
       <View style={styles.emptyState}>
         <MaterialCommunityIcons
@@ -137,8 +175,8 @@ export function ManualesScreen() {
         <Text style={styles.emptyTitle}>Sin manuales todavía</Text>
         <Text style={styles.emptyText}>
           {isExternal
-            ? 'Agrega archivos PDF a la subcarpeta «manuales» de la carpeta elegida o usa el botón Importar PDF.'
-            : 'Importa un PDF desde tu dispositivo para agregarlo a la biblioteca de manuales.'}
+            ? 'Agrega archivos PDF a la subcarpeta «manuales» de la carpeta elegida.'
+            : 'No hay manuales PDF disponibles en la biblioteca.'}
         </Text>
       </View>
     );
@@ -169,69 +207,34 @@ export function ManualesScreen() {
         </View>
       </View>
 
-      <View style={styles.toolbar}>
-        <TouchableOpacity
-          style={[styles.toolbarButton, styles.toolbarButtonPrimary]}
-          onPress={handleImport}
-          disabled={busy}
-          activeOpacity={0.8}
-        >
-          {busy ? (
-            <ActivityIndicator size="small" color={colors.accentText} />
-          ) : (
-            <MaterialCommunityIcons
-              name="file-plus"
-              size={17}
-              color={colors.accentText}
-            />
-          )}
-          <Text
-            style={[styles.toolbarButtonText, styles.toolbarButtonTextPrimary]}
-          >
-            Importar PDF
-          </Text>
-        </TouchableOpacity>
+      {!loading && documents.length > 0 && (
+        <BrandFilter
+          documents={documents}
+          selectedBrand={selectedBrand}
+          onSelectBrand={setSelectedBrand}
+        />
+      )}
 
-        <TouchableOpacity
-          style={styles.toolbarButton}
-          onPress={handleChooseFolder}
-          disabled={busy}
-          activeOpacity={0.8}
-        >
-          <MaterialCommunityIcons
-            name="folder-search"
-            size={17}
-            color={colors.accent}
-          />
-          <Text style={styles.toolbarButtonText}>
-            {isExternal ? 'Cambiar carpeta' : 'Elegir carpeta'}
+      {selectedBrand !== null && documents.length > 0 && (
+        <View style={styles.resultsRow}>
+          <Text style={styles.resultsText}>
+            Mostrando <Text style={styles.resultsHighlight}>{filteredDocuments.length}</Text> de {documents.length} manuales
           </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.toolbarButton}
-          onPress={refresh}
-          disabled={busy}
-          activeOpacity={0.8}
-        >
-          <MaterialCommunityIcons
-            name="refresh"
-            size={17}
-            color={colors.accent}
-          />
-          <Text style={styles.toolbarButtonText}>Actualizar</Text>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity onPress={() => setSelectedBrand(null)} activeOpacity={0.7}>
+            <Text style={styles.clearText}>Ver todos</Text>
+          </TouchableOpacity>
+        </View>
+      )}
 
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
-      {documents.length === 0 ? (
+      {filteredDocuments.length === 0 ? (
         renderEmpty()
       ) : (
         <FlatList
           style={styles.list}
           contentContainerStyle={styles.listContent}
-          data={documents}
+          data={filteredDocuments}
           keyExtractor={(item) => item.id}
           renderItem={({ item, index }) => (
             <ManualRow

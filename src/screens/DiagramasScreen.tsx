@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -13,6 +13,9 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { usePdfLibrary } from '../hooks/usePdfLibrary';
 import { formatBytes } from '../utils/formatBytes';
+import { BrandLogo } from '../components/BrandLogo';
+import { BrandFilter, type BrandFilterValue } from '../components/BrandFilter';
+import { getBrandLabel } from '../constants/carBrands';
 import { ThemeToggle } from '../components/ThemeToggle';
 import { useTheme, useThemedStyles } from '../theme/ThemeContext';
 import { createDiagramasStyles } from '../theme/diagramasStyles';
@@ -21,7 +24,7 @@ import type { RootStackParamList } from '../navigation/types';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
-function DiagramCard({
+function DiagramRow({
   document,
   onPress,
 }: {
@@ -30,27 +33,30 @@ function DiagramCard({
 }) {
   const { colors } = useTheme();
   const styles = useThemedStyles(createDiagramasStyles);
+  const brandLabel = getBrandLabel(document.brand);
 
   return (
     <TouchableOpacity
-      style={styles.card}
-      activeOpacity={0.8}
+      style={styles.row}
+      activeOpacity={0.75}
       onPress={onPress}
     >
-      <View style={styles.cardIcon}>
-        <MaterialCommunityIcons
-          name="file-pdf-box"
-          size={28}
-          color={colors.accent}
-        />
+      <BrandLogo brand={document.brand} size={46} />
+      <View style={styles.rowText}>
+        <Text style={styles.rowTitle} numberOfLines={2}>
+          {document.title}
+        </Text>
+        <Text style={styles.rowMeta}>
+          {brandLabel ? `${brandLabel} · ` : ''}
+          Diagrama eléctrico ·{' '}
+          {document.size === 0 ? 'Incluido' : formatBytes(document.size)}
+        </Text>
       </View>
-      <Text style={styles.cardTitle} numberOfLines={3}>
-        {document.title}
-      </Text>
-      <Text style={styles.cardMeta}>
-        Diagrama ·{' '}
-        {document.size === 0 ? 'Incluido' : formatBytes(document.size)}
-      </Text>
+      <MaterialCommunityIcons
+        name="chevron-right"
+        size={22}
+        color={colors.textMuted}
+      />
     </TouchableOpacity>
   );
 }
@@ -60,6 +66,7 @@ export function DiagramasScreen() {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const styles = useThemedStyles(createDiagramasStyles);
+  const [selectedBrand, setSelectedBrand] = useState<BrandFilterValue>(null);
   const {
     documents,
     isExternal,
@@ -72,18 +79,28 @@ export function DiagramasScreen() {
     importPdfs,
   } = usePdfLibrary('diagramas');
 
+  const filteredDocuments = useMemo(() => {
+    if (selectedBrand === null) return documents;
+    if (selectedBrand === 'other') {
+      return documents.filter((doc) => !doc.brand);
+    }
+    return documents.filter((doc) => doc.brand === selectedBrand);
+  }, [documents, selectedBrand]);
+
   const openDocument = useCallback(
     (index: number) => {
+      const target = filteredDocuments[index];
+      const realIndex = documents.findIndex((item) => item.id === target.id);
       navigation.navigate('PdfViewer', {
-        title: documents[index].title,
-        initialIndex: index,
+        title: target.title,
+        initialIndex: realIndex >= 0 ? realIndex : 0,
         documents: documents.map((item) => ({
           uri: item.uri,
           title: item.title,
         })),
       });
     },
-    [documents, navigation]
+    [documents, filteredDocuments, navigation]
   );
 
   const handleImport = useCallback(async () => {
@@ -119,7 +136,7 @@ export function DiagramasScreen() {
             <Text style={styles.heroKicker}>Planos y esquemas</Text>
             <Text style={styles.heroTitle}>Diagramas</Text>
             <Text style={styles.heroSubtitle}>
-              Consulta los diagramas PDF del dispositivo desde una galería
+              Consulta los diagramas PDF del dispositivo desde una lista
               pensada para planos técnicos.
             </Text>
           </View>
@@ -148,57 +165,24 @@ export function DiagramasScreen() {
         </View>
       </View>
 
-      <View style={styles.toolbar}>
-        <TouchableOpacity
-          style={[styles.action, styles.actionPrimary]}
-          onPress={handleImport}
-          disabled={busy}
-          activeOpacity={0.8}
-        >
-          {busy ? (
-            <ActivityIndicator size="small" color={colors.accentText} />
-          ) : (
-            <MaterialCommunityIcons
-              name="file-plus"
-              size={16}
-              color={colors.accentText}
-            />
-          )}
-          <Text style={[styles.actionText, styles.actionTextPrimary]}>
-            Importar PDF
-          </Text>
-        </TouchableOpacity>
+      {!loading && documents.length > 0 && (
+        <BrandFilter
+          documents={documents}
+          selectedBrand={selectedBrand}
+          onSelectBrand={setSelectedBrand}
+        />
+      )}
 
-        <TouchableOpacity
-          style={styles.action}
-          onPress={handleChooseFolder}
-          disabled={busy}
-          activeOpacity={0.8}
-        >
-          <MaterialCommunityIcons
-            name="folder-search"
-            size={16}
-            color={colors.accent}
-          />
-          <Text style={styles.actionText}>
-            {isExternal ? 'Cambiar carpeta' : 'Elegir carpeta'}
+      {selectedBrand !== null && documents.length > 0 && (
+        <View style={styles.resultsRow}>
+          <Text style={styles.resultsText}>
+            Mostrando <Text style={styles.resultsHighlight}>{filteredDocuments.length}</Text> de {documents.length} diagramas
           </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.action}
-          onPress={refresh}
-          disabled={busy}
-          activeOpacity={0.8}
-        >
-          <MaterialCommunityIcons
-            name="refresh"
-            size={16}
-            color={colors.accent}
-          />
-          <Text style={styles.actionText}>Actualizar</Text>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity onPress={() => setSelectedBrand(null)} activeOpacity={0.7}>
+            <Text style={styles.clearText}>Ver todos</Text>
+          </TouchableOpacity>
+        </View>
+      )}
 
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
@@ -206,30 +190,46 @@ export function DiagramasScreen() {
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={colors.accent} />
         </View>
-      ) : documents.length === 0 ? (
+      ) : filteredDocuments.length === 0 ? (
         <View style={styles.emptyState}>
           <MaterialCommunityIcons
-            name="image-multiple-outline"
+            name={selectedBrand !== null ? 'filter-variant' : 'image-multiple-outline'}
             size={54}
             color={colors.accent}
           />
-          <Text style={styles.emptyTitle}>Sin diagramas todavía</Text>
-          <Text style={styles.emptyText}>
-            {isExternal
-              ? 'Coloca tus PDF en la subcarpeta «diagramas» de la carpeta elegida o impórtalos con el botón Importar PDF.'
-              : 'Importa los diagramas PDF desde tu dispositivo para verlos en esta galería.'}
+          <Text style={styles.emptyTitle}>
+            {selectedBrand !== null ? 'Sin resultados para esta marca' : 'Sin diagramas todavía'}
           </Text>
+          <Text style={styles.emptyText}>
+            {selectedBrand !== null
+              ? 'No hay diagramas disponibles para el filtro seleccionado.'
+              : isExternal
+              ? 'Coloca tus PDF en la subcarpeta «diagramas» de la carpeta elegida.'
+              : 'No hay diagramas PDF disponibles en esta lista.'}
+          </Text>
+          {selectedBrand !== null && (
+            <TouchableOpacity
+              style={styles.emptyResetButton}
+              activeOpacity={0.8}
+              onPress={() => setSelectedBrand(null)}
+            >
+              <MaterialCommunityIcons
+                name="refresh"
+                size={16}
+                color={colors.accentText}
+              />
+              <Text style={styles.emptyResetText}>Mostrar todos</Text>
+            </TouchableOpacity>
+          )}
         </View>
       ) : (
         <FlatList
-          style={styles.grid}
-          contentContainerStyle={styles.gridContent}
-          data={documents}
+          style={styles.list}
+          contentContainerStyle={styles.listContent}
+          data={filteredDocuments}
           keyExtractor={(item) => item.id}
-          numColumns={2}
-          columnWrapperStyle={{ gap: 12 }}
           renderItem={({ item, index }) => (
-            <DiagramCard
+            <DiagramRow
               document={item}
               onPress={() => openDocument(index)}
             />

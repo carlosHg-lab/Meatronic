@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Directory, File, Paths } from 'expo-file-system';
 import { BUNDLED_PDFS } from '../constants/bundledPdfs';
+import { detectCarBrand, type CarBrand } from '../constants/carBrands';
 
 export type PdfCategory = 'manuales' | 'diagramas';
 
@@ -11,6 +12,7 @@ export type PdfDocument = {
   uri: string | number;
   size: number;
   category: PdfCategory;
+  brand?: CarBrand;
 };
 
 export type LibrarySnapshot = {
@@ -143,6 +145,7 @@ function readCategory(
           uri: file.uri,
           size: file.size,
           category,
+          brand: detectCarBrand(name) ?? undefined,
         };
       })
       .sort((a, b) => a.name.localeCompare(b.name, 'es'));
