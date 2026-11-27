@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { NumberField } from '../../components/calculator/NumberField';
 import { OptionChips } from '../../components/calculator/OptionChips';

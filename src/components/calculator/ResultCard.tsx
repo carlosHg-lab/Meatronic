@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text, View } from 'react-native';
 import { useThemedStyles } from '../../theme/ThemeContext';
 import { createCalculatorStyles } from '../../theme/calculatorStyles';

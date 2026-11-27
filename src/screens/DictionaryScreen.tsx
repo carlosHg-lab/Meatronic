@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   FlatList,
   Text,
@@ -230,7 +230,7 @@ export function DictionaryScreen() {
                 color={colors.accent}
               />
             </View>
-            <View style={{ flex: 1 }}>
+            <View style={styles.headerTitleContent}>
               <Text style={styles.kicker}>Diccionario técnico</Text>
               <Text style={styles.title} numberOfLines={1}>
                 Autotrónico

@@ -1,15 +1,10 @@
-import React, { useMemo } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { useMemo } from 'react';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { BrandLogo } from './BrandLogo';
 import { getBrandLabel, type CarBrand } from '../constants/carBrands';
-import { useTheme } from '../theme/ThemeContext';
+import { useTheme, useThemedStyles } from '../theme/ThemeContext';
+import { createBrandFilterStyles } from '../theme/brandFilterStyles';
 import type { PdfDocument } from '../services/pdfLibrary';
 
 export type BrandFilterValue = CarBrand | 'other' | null;
@@ -26,6 +21,7 @@ export function BrandFilter({
   onSelectBrand,
 }: BrandFilterProps) {
   const { colors } = useTheme();
+  const styles = useThemedStyles(createBrandFilterStyles);
 
   const { brandOptions, hasOther, otherCount } = useMemo(() => {
     const counts: Partial<Record<CarBrand, number>> = {};
@@ -245,58 +241,5 @@ export function BrandFilter({
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  scroll: {
-    flexGrow: 0,
-  },
-  scrollContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    paddingHorizontal: 20,
-    paddingTop: 12,
-    paddingBottom: 8,
-  },
-  chip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    paddingLeft: 10,
-    paddingRight: 10,
-    height: 42,
-    borderRadius: 8,
-    borderWidth: 1,
-  },
-  chipText: {
-    fontSize: 13,
-    fontWeight: '600',
-  },
-  chipTextActive: {
-    fontWeight: '700',
-  },
-  iconBox: {
-    width: 24,
-    height: 24,
-    borderRadius: 4,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-  },
-  countBadge: {
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 10,
-    borderWidth: 1,
-    minWidth: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  countText: {
-    fontSize: 11,
-    fontWeight: '700',
-    fontVariant: ['tabular-nums'],
-  },
-});
 
 export default BrandFilter;

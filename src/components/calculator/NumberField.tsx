@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useTheme, useThemedStyles } from '../../theme/ThemeContext';
 import { createCalculatorStyles } from '../../theme/calculatorStyles';

@@ -1,9 +1,9 @@
-import React from 'react';
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleProp, View, ViewStyle } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Svg, { Path } from 'react-native-svg';
 import { BRAND_LOGOS, type CarBrand } from '../constants/carBrands';
-import { useTheme } from '../theme/ThemeContext';
+import { useTheme, useThemedStyles } from '../theme/ThemeContext';
+import { createBrandLogoStyles } from '../theme/brandLogoStyles';
 
 type BrandLogoProps = {
   brand?: CarBrand | null;
@@ -13,6 +13,7 @@ type BrandLogoProps = {
 
 export function BrandLogo({ brand, size = 46, style }: BrandLogoProps) {
   const { colors } = useTheme();
+  const styles = useThemedStyles(createBrandLogoStyles);
   const logo = brand ? BRAND_LOGOS[brand] : null;
 
   if (!logo) {
@@ -67,15 +68,5 @@ export function BrandLogo({ brand, size = 46, style }: BrandLogoProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  box: {
-    borderRadius: 6,
-    borderWidth: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-});
 
 export default BrandLogo;

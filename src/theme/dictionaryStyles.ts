@@ -27,6 +27,9 @@ export const createDictionaryStyles = (colors: ThemeColors) =>
       alignItems: 'center',
       gap: 10,
     },
+    headerTitleContent: {
+      flex: 1,
+    },
     headerIcon: {
       width: 40,
       height: 40,

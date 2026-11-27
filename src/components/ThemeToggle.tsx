@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { useTheme } from '../theme/ThemeContext';
+import { useTheme, useThemedStyles } from '../theme/ThemeContext';
+import { createThemeToggleStyles } from '../theme/themeToggleStyles';
 import type { ThemeMode } from '../theme/colors';
 
 type IconName = React.ComponentProps<typeof MaterialCommunityIcons>['name'];
@@ -26,6 +27,7 @@ const NEXT_LABELS: Record<ThemeMode, string> = {
 
 export function ThemeToggle() {
   const { mode, colors, cycleMode } = useTheme();
+  const styles = useThemedStyles(createThemeToggleStyles);
 
   return (
     <TouchableOpacity
@@ -46,16 +48,5 @@ export function ThemeToggle() {
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  button: {
-    width: 48,
-    height: 48,
-    borderRadius: 6,
-    borderWidth: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default ThemeToggle;
